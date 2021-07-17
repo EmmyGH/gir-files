@@ -26538,7 +26538,7 @@ present.</doc>
       </function>
       <method name="get_fd_list" c:identifier="webkit_user_message_get_fd_list" version="2.28">
         <doc xml:space="preserve">Get the @message list of file descritpor</doc>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">the message list of file descriptors</doc>
           <type name="Gio.UnixFDList" c:type="GUnixFDList*"/>
         </return-value>
@@ -26564,7 +26564,7 @@ present.</doc>
       </method>
       <method name="get_parameters" c:identifier="webkit_user_message_get_parameters" version="2.28">
         <doc xml:space="preserve">Get the @message parameters</doc>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">the message parameters</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>

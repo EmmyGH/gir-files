@@ -145,7 +145,7 @@ See also [method@Gdk.AppLaunchContext.set_icon_name].</doc>
             <type name="AppLaunchContext" c:type="GdkAppLaunchContext*"/>
           </instance-parameter>
           <parameter name="icon" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">a #GIcon, or %NULL</doc>
+            <doc xml:space="preserve">a `GIcon`</doc>
             <type name="Gio.Icon" c:type="GIcon*"/>
           </parameter>
         </parameters>
@@ -154,7 +154,7 @@ See also [method@Gdk.AppLaunchContext.set_icon_name].</doc>
         <doc xml:space="preserve">Sets the icon for applications that are launched with this context.
 
 The @icon_name will be interpreted in the same way as the Icon field
-in desktop files. See also [method@Gdk.AppLaunchContext.set_icon()].
+in desktop files. See also [method@Gdk.AppLaunchContext.set_icon].
 
 If both @icon and @icon_name are set, the @icon_name takes priority.
 If neither @icon or @icon_name is set, the icon is taken from either
@@ -169,7 +169,7 @@ for the launched application itself.</doc>
             <type name="AppLaunchContext" c:type="GdkAppLaunchContext*"/>
           </instance-parameter>
           <parameter name="icon_name" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">an icon name, or %NULL</doc>
+            <doc xml:space="preserve">an icon name</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -373,8 +373,8 @@ left button in a left-handed setup.</doc>
 draw context.
 
 `GdkCairoContext`s are created for a surface using
-[method@Gdk.Surface.create_cairo_context], and the context can then be used
-to draw on that surface.</doc>
+[method@Gdk.Surface.create_cairo_context], and the context
+can then be used to draw on that surface.</doc>
       <method name="cairo_create" c:identifier="gdk_cairo_context_cairo_create">
         <doc xml:space="preserve">Retrieves a Cairo context to be used to draw on the `GdkSurface`
 of @context.
@@ -385,14 +385,13 @@ A call to [method@Gdk.DrawContext.begin_frame] with this
 The returned context is guaranteed to be valid until
 [method@Gdk.DrawContext.end_frame] is called.</doc>
         <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve">a Cairo context to be used
-  to draw the contents of the `GdkSurface`. %NULL is returned
-  when @context is not drawing.</doc>
+          <doc xml:space="preserve">a Cairo context
+  to draw on `GdkSurface</doc>
           <type name="cairo.Context" c:type="cairo_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkCairoContext that is currently drawing</doc>
+            <doc xml:space="preserve">a `GdkCairoContext` that is currently drawing</doc>
             <type name="CairoContext" c:type="GdkCairoContext*"/>
           </instance-parameter>
         </parameters>
@@ -423,8 +422,8 @@ To read textual or image data from a clipboard, use
 If the @clipboard is empty or its contents are not owned by the
 current process, %NULL will be returned.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">The content of a clipboard or %NULL
-    if the clipboard does not maintain any content.</doc>
+          <doc xml:space="preserve">The content of a clipboard
+  if the clipboard does not maintain any content</doc>
           <type name="ContentProvider" c:type="GdkContentProvider*"/>
         </return-value>
         <parameters>
@@ -508,7 +507,7 @@ to fulfill the request, preferring the ones listed first.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">optional `GCancellable` object, %NULL to ignore.</doc>
+            <doc xml:space="preserve">optional `GCancellable` object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback" transfer-ownership="none" nullable="1" allow-none="1" scope="async" closure="4">
@@ -526,7 +525,7 @@ to fulfill the request, preferring the ones listed first.</doc>
 
 See [method@Gdk.Clipboard.read_async].</doc>
         <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve">a `GInputStream` or %NULL on error.</doc>
+          <doc xml:space="preserve">a `GInputStream`</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
         <parameters>
@@ -539,8 +538,8 @@ See [method@Gdk.Clipboard.read_async].</doc>
             <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
           </parameter>
           <parameter name="out_mime_type" direction="out" caller-allocates="0" transfer-ownership="none" optional="1" allow-none="1">
-            <doc xml:space="preserve">pointer to store
-    the chosen mime type in or %NULL</doc>
+            <doc xml:space="preserve">location to store
+  the chosen mime type</doc>
             <type name="utf8" c:type="const char**"/>
           </parameter>
         </parameters>
@@ -563,7 +562,7 @@ need more control over the operation.</doc>
             <type name="Clipboard" c:type="GdkClipboard*"/>
           </instance-parameter>
           <parameter name="cancellable" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">optional `GCancellable` object, %NULL to ignore</doc>
+            <doc xml:space="preserve">optional `GCancellable` object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback" transfer-ownership="none" nullable="1" allow-none="1" scope="async" closure="2">
@@ -581,7 +580,7 @@ need more control over the operation.</doc>
 
 See [method@Gdk.Clipboard.read_text_async].</doc>
         <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve">a new string or %NULL on error</doc>
+          <doc xml:space="preserve">a new string</doc>
           <type name="utf8" c:type="char*"/>
         </return-value>
         <parameters>
@@ -602,7 +601,7 @@ When the operation is finished @callback will be called. You must then
 call [method@Gdk.Clipboard.read_texture_finish] to get the result.
 
 This is a simple wrapper around [method@Gdk.Clipboard.read_value_async].
-Use that function or [methos@Gdk.Clipboard.read_async] directly if you
+Use that function or [method@Gdk.Clipboard.read_async] directly if you
 need more control over the operation.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -631,7 +630,7 @@ need more control over the operation.</doc>
 
 See [method@Gdk.Clipboard.read_texture_async].</doc>
         <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve">a new `GdkTexture` or %NULL on error</doc>
+          <doc xml:space="preserve">a new `GdkTexture`</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
@@ -672,7 +671,7 @@ the value will be copied directly. Otherwise, GDK will try to use
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">optional #GCancellable object, %NULL to ignore.</doc>
+            <doc xml:space="preserve">optional `GCancellable` object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback" transfer-ownership="none" nullable="1" allow-none="1" scope="async" closure="4">
@@ -751,8 +750,8 @@ transfer the contents and then request that format from @provider.</doc>
             <type name="Clipboard" c:type="GdkClipboard*"/>
           </instance-parameter>
           <parameter name="provider" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">the new contents of @clipboard or
-    %NULL to clear the clipboard</doc>
+            <doc xml:space="preserve">the new contents of @clipboard
+  or %NULL to clear the clipboard</doc>
             <type name="ContentProvider" c:type="GdkContentProvider*"/>
           </parameter>
         </parameters>
@@ -848,11 +847,11 @@ shut down, so you likely don't need to call it.</doc>
             <type name="Clipboard" c:type="GdkClipboard*"/>
           </instance-parameter>
           <parameter name="io_priority" transfer-ownership="none">
-            <doc xml:space="preserve">the I/O priority of the request.</doc>
+            <doc xml:space="preserve">the I/O priority of the request</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">optional `GCancellable` object, %NULL to ignore.</doc>
+            <doc xml:space="preserve">optional `GCancellable` object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback" transfer-ownership="none" nullable="1" allow-none="1" scope="async" closure="3">
@@ -923,7 +922,7 @@ operation.</doc>
       </return-value>
       <parameters>
         <parameter name="deserializer" transfer-ownership="none">
-          <doc xml:space="preserve">a #GdkContentDeserializer</doc>
+          <doc xml:space="preserve">a `GdkContentDeserializer`</doc>
           <type name="ContentDeserializer" c:type="GdkContentDeserializer*"/>
         </parameter>
       </parameters>
@@ -944,7 +943,7 @@ Also see [class@Gdk.ContentSerializer].</doc>
       <method name="get_cancellable" c:identifier="gdk_content_deserializer_get_cancellable">
         <doc xml:space="preserve">Gets the cancellable for the current operation.
 
-This is the `GCancellable` that was passed to [func@content_deserialize_async].</doc>
+This is the `GCancellable` that was passed to [func@Gdk.content_deserialize_async].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the cancellable for the current operation</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
@@ -957,9 +956,9 @@ This is the `GCancellable` that was passed to [func@content_deserialize_async].<
         </parameters>
       </method>
       <method name="get_gtype" c:identifier="gdk_content_deserializer_get_gtype">
-        <doc xml:space="preserve">Gets the GType to create an instance of.</doc>
+        <doc xml:space="preserve">Gets the `GType` to create an instance of.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the GType for the current operation</doc>
+          <doc xml:space="preserve">the `GType` for the current operation</doc>
           <type name="GType" c:type="GType"/>
         </return-value>
         <parameters>
@@ -972,7 +971,7 @@ This is the `GCancellable` that was passed to [func@content_deserialize_async].<
       <method name="get_input_stream" c:identifier="gdk_content_deserializer_get_input_stream">
         <doc xml:space="preserve">Gets the input stream for the current operation.
 
-This is the stream that was passed to [func@content_deserialize_async].</doc>
+This is the stream that was passed to [func@Gdk.content_deserialize_async].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the input stream for the current operation</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
@@ -1000,7 +999,7 @@ This is the stream that was passed to [func@content_deserialize_async].</doc>
       <method name="get_priority" c:identifier="gdk_content_deserializer_get_priority">
         <doc xml:space="preserve">Gets the I/O priority for the current operation.
 
-This is the priority that was passed to [funccontent_deserialize_async].</doc>
+This is the priority that was passed to [func@Gdk.content_deserialize_async].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the I/O priority for the current operation</doc>
           <type name="gint" c:type="int"/>
@@ -1065,7 +1064,7 @@ This function consumes @error.</doc>
             <doc xml:space="preserve">a `GdkContentDeserializer`</doc>
             <type name="ContentDeserializer" c:type="GdkContentDeserializer*"/>
           </instance-parameter>
-          <parameter name="error" transfer-ownership="none">
+          <parameter name="error" transfer-ownership="full">
             <doc xml:space="preserve">a `GError`</doc>
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
@@ -1135,14 +1134,14 @@ to least important.
 
 `GdkContentFormats` is an immutable struct. After creation, you cannot change
 the types it represents. Instead, new `GdkContentFormats` have to be created.
-The [struct@Gdk.ContentFormatsBuilder]` structure is meant to help in this
+The [struct@Gdk.ContentFormatsBuilder] structure is meant to help in this
 endeavor.</doc>
       <constructor name="new" c:identifier="gdk_content_formats_new">
         <doc xml:space="preserve">Creates a new `GdkContentFormats` from an array of mime types.
 
 The mime types must be valid and different from each other or the
 behavior of the return value is undefined. If you cannot guarantee
-this, use `GdkContentFormatsBuilder` instead.</doc>
+this, use [struct@Gdk.ContentFormatsBuilder] instead.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve">the new `GdkContentFormats`.</doc>
           <type name="ContentFormats" c:type="GdkContentFormats*"/>
@@ -1177,7 +1176,7 @@ this, use `GdkContentFormatsBuilder` instead.</doc>
       <method name="contain_gtype" c:identifier="gdk_content_formats_contain_gtype">
         <doc xml:space="preserve">Checks if a given `GType` is part of the given @formats.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if the #GType was found</doc>
+          <doc xml:space="preserve">%TRUE if the `GType` was found</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1209,15 +1208,14 @@ this, use `GdkContentFormatsBuilder` instead.</doc>
         </parameters>
       </method>
       <method name="get_gtypes" c:identifier="gdk_content_formats_get_gtypes">
-        <doc xml:space="preserve">Gets the `GTypes` included in @formats.
+        <doc xml:space="preserve">Gets the `GType`s included in @formats.
 
-Note that @formats may not contain any #GTypes, in particular when
+Note that @formats may not contain any `GType`s, in particular when
 they are empty. In that case %NULL will be returned.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">
-     %G_TYPE_INVALID-terminated array of types included in @formats or
-     %NULL if none.</doc>
-          <array length="0" zero-terminated="0" c:type="const GType*">
+  %G_TYPE_INVALID-terminated array of types included in @formats</doc>
+          <array length="0" zero-terminated="1" c:type="const GType*">
             <type name="GType" c:type="GType"/>
           </array>
         </return-value>
@@ -1228,7 +1226,7 @@ they are empty. In that case %NULL will be returned.</doc>
           </instance-parameter>
           <parameter name="n_gtypes" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
             <doc xml:space="preserve">optional pointer to take the
-    number of #GTypes contained in the return value</doc>
+  number of `GType`s contained in the return value</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -1239,10 +1237,10 @@ they are empty. In that case %NULL will be returned.</doc>
 Note that @formats may not contain any mime types, in particular
 when they are empty. In that case %NULL will be returned.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">%NULL-terminated array of
-    interned strings of mime types included in @formats or %NULL
-    if none.</doc>
-          <array c:type="const char* const*">
+          <doc xml:space="preserve">
+  %NULL-terminated array of interned strings of mime types included
+  in @formats</doc>
+          <array length="0" zero-terminated="1" c:type="const char* const*">
             <type name="utf8"/>
           </array>
         </return-value>
@@ -1253,7 +1251,7 @@ when they are empty. In that case %NULL will be returned.</doc>
           </instance-parameter>
           <parameter name="n_mime_types" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
             <doc xml:space="preserve">optional pointer to take the
-    number of mime types contained in the return value</doc>
+  number of mime types contained in the return value</doc>
             <type name="gsize" c:type="gsize*"/>
           </parameter>
         </parameters>
@@ -1301,7 +1299,7 @@ in @second.
 
 If no matching mime type is found, %NULL is returned.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">The first common mime type or %NULL if none.</doc>
+          <doc xml:space="preserve">The first common mime type or %NULL if none</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -1666,7 +1664,7 @@ gdk_content_provider_new_union ((GdkContentProvider *[2]) {
         <parameters>
           <parameter name="providers" transfer-ownership="full" nullable="1" allow-none="1">
             <doc xml:space="preserve">
-    The #GdkContentProviders to present the union of</doc>
+  The `GdkContentProvider`s to present the union of</doc>
             <array length="1" zero-terminated="0" c:type="GdkContentProvider**">
               <type name="ContentProvider" c:type="GdkContentProvider*"/>
             </array>
@@ -1722,10 +1720,10 @@ The @value will have been initialized to the `GType` the value should be
 provided in. This given `GType` does not need to be listed in the formats
 returned by [method@Gdk.ContentProvider.ref_formats]. However, if the
 given `GType` is not supported, this operation can fail and
-#G_IO_ERROR_NOT_SUPPORTED will be reported.</doc>
+`G_IO_ERROR_NOT_SUPPORTED` will be reported.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE if the value was set successfully. Otherwise
-    @error will be set to describe the failure.</doc>
+  @error will be set to describe the failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1748,7 +1746,7 @@ given `GType` is not supported, this operation can fail and
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkContentProvider</doc>
+            <doc xml:space="preserve">a `GdkContentProvider`</doc>
             <type name="ContentProvider" c:type="GdkContentProvider*"/>
           </instance-parameter>
         </parameters>
@@ -1767,7 +1765,7 @@ This can be assumed to be a subset of [method@Gdk.ContentProvider.ref_formats].<
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkContentProvider</doc>
+            <doc xml:space="preserve">a `GdkContentProvider`</doc>
             <type name="ContentProvider" c:type="GdkContentProvider*"/>
           </instance-parameter>
         </parameters>
@@ -1782,7 +1780,7 @@ of the operation.
 
 The given mime type does not need to be listed in the formats returned by
 [method@Gdk.ContentProvider.ref_formats]. However, if the given `GType` is
-not supported, #G_IO_ERROR_NOT_SUPPORTED will be reported.
+not supported, `G_IO_ERROR_NOT_SUPPORTED` will be reported.
 
 The given @stream will not be closed.</doc>
         <return-value transfer-ownership="none">
@@ -1825,7 +1823,7 @@ The given @stream will not be closed.</doc>
 See [method@Gdk.ContentProvider.write_mime_type_async].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE if the operation was completed successfully. Otherwise
-    @error will be set to describe the failure.</doc>
+  @error will be set to describe the failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1858,10 +1856,10 @@ The @value will have been initialized to the `GType` the value should be
 provided in. This given `GType` does not need to be listed in the formats
 returned by [method@Gdk.ContentProvider.ref_formats]. However, if the
 given `GType` is not supported, this operation can fail and
-#G_IO_ERROR_NOT_SUPPORTED will be reported.</doc>
+`G_IO_ERROR_NOT_SUPPORTED` will be reported.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE if the value was set successfully. Otherwise
-    @error will be set to describe the failure.</doc>
+  @error will be set to describe the failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1884,7 +1882,7 @@ given `GType` is not supported, this operation can fail and
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkContentProvider</doc>
+            <doc xml:space="preserve">a `GdkContentProvider`</doc>
             <type name="ContentProvider" c:type="GdkContentProvider*"/>
           </instance-parameter>
         </parameters>
@@ -1903,7 +1901,7 @@ This can be assumed to be a subset of [method@Gdk.ContentProvider.ref_formats].<
         </return-value>
         <parameters>
           <instance-parameter name="provider" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkContentProvider</doc>
+            <doc xml:space="preserve">a `GdkContentProvider`</doc>
             <type name="ContentProvider" c:type="GdkContentProvider*"/>
           </instance-parameter>
         </parameters>
@@ -1918,7 +1916,7 @@ of the operation.
 
 The given mime type does not need to be listed in the formats returned by
 [method@Gdk.ContentProvider.ref_formats]. However, if the given `GType` is
-not supported, #G_IO_ERROR_NOT_SUPPORTED will be reported.
+not supported, `G_IO_ERROR_NOT_SUPPORTED` will be reported.
 
 The given @stream will not be closed.</doc>
         <return-value transfer-ownership="none">
@@ -1961,7 +1959,7 @@ The given @stream will not be closed.</doc>
 See [method@Gdk.ContentProvider.write_mime_type_async].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE if the operation was completed successfully. Otherwise
-    @error will be set to describe the failure.</doc>
+  @error will be set to describe the failure.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -1996,7 +1994,7 @@ See [method@Gdk.ContentProvider.write_mime_type_async].</doc>
       </glib:signal>
     </class>
     <record name="ContentProviderClass" c:type="GdkContentProviderClass" glib:is-gtype-struct-for="ContentProvider">
-      <doc xml:space="preserve">Class structure for #GdkContentProvider.</doc>
+      <doc xml:space="preserve">Class structure for `GdkContentProvider`.</doc>
       <field name="parent_class">
         <type name="GObject.ObjectClass" c:type="GObjectClass"/>
       </field>
@@ -2051,7 +2049,7 @@ See [method@Gdk.ContentProvider.write_mime_type_async].</doc>
           </return-value>
           <parameters>
             <parameter name="provider" transfer-ownership="none">
-              <doc xml:space="preserve">a #GdkContentProvider</doc>
+              <doc xml:space="preserve">a `GdkContentProvider`</doc>
               <type name="ContentProvider" c:type="GdkContentProvider*"/>
             </parameter>
           </parameters>
@@ -2065,7 +2063,7 @@ See [method@Gdk.ContentProvider.write_mime_type_async].</doc>
           </return-value>
           <parameters>
             <parameter name="provider" transfer-ownership="none">
-              <doc xml:space="preserve">a #GdkContentProvider</doc>
+              <doc xml:space="preserve">a `GdkContentProvider`</doc>
               <type name="ContentProvider" c:type="GdkContentProvider*"/>
             </parameter>
           </parameters>
@@ -2112,7 +2110,7 @@ See [method@Gdk.ContentProvider.write_mime_type_async].</doc>
         <callback name="write_mime_type_finish" throws="1">
           <return-value transfer-ownership="none">
             <doc xml:space="preserve">%TRUE if the operation was completed successfully. Otherwise
-    @error will be set to describe the failure.</doc>
+  @error will be set to describe the failure.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
@@ -2131,7 +2129,7 @@ See [method@Gdk.ContentProvider.write_mime_type_async].</doc>
         <callback name="get_value" throws="1">
           <return-value transfer-ownership="none">
             <doc xml:space="preserve">%TRUE if the value was set successfully. Otherwise
-    @error will be set to describe the failure.</doc>
+  @error will be set to describe the failure.</doc>
             <type name="gboolean" c:type="gboolean"/>
           </return-value>
           <parameters>
@@ -2163,7 +2161,7 @@ operation.</doc>
       </return-value>
       <parameters>
         <parameter name="serializer" transfer-ownership="none">
-          <doc xml:space="preserve">a #GdkContentSerializer</doc>
+          <doc xml:space="preserve">a `GdkContentSerializer`</doc>
           <type name="ContentSerializer" c:type="GdkContentSerializer*"/>
         </parameter>
       </parameters>
@@ -2178,14 +2176,14 @@ identified by a mime type.
 
 GTK provides serializers and deserializers for common data types
 such as text, colors, images or file lists. To register your own
-serialization functions, use [func@content_register_serializer].
+serialization functions, use [func@Gdk.content_register_serializer].
 
 Also see [class@Gdk.ContentDeserializer].</doc>
       <implements name="Gio.AsyncResult"/>
       <method name="get_cancellable" c:identifier="gdk_content_serializer_get_cancellable">
         <doc xml:space="preserve">Gets the cancellable for the current operation.
 
-This is the `GCancellable` that was passed to [content_serialize_async].</doc>
+This is the `GCancellable` that was passed to [func@content_serialize_async].</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the cancellable for the current operation</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
@@ -2306,7 +2304,7 @@ This function consumes @error.</doc>
             <doc xml:space="preserve">a `GdkContentSerializer`</doc>
             <type name="ContentSerializer" c:type="GdkContentSerializer*"/>
           </instance-parameter>
-          <parameter name="error" transfer-ownership="none">
+          <parameter name="error" transfer-ownership="full">
             <doc xml:space="preserve">a `GError`</doc>
             <type name="GLib.Error" c:type="GError*"/>
           </parameter>
@@ -2487,7 +2485,7 @@ platforms can be found in the CSS specification:
           </parameter>
           <parameter name="fallback" transfer-ownership="none" nullable="1" allow-none="1">
             <doc xml:space="preserve">%NULL or the `GdkCursor` to fall back to when
-    this one cannot be supported</doc>
+  this one cannot be supported</doc>
             <type name="Cursor" c:type="GdkCursor*"/>
           </parameter>
         </parameters>
@@ -2512,8 +2510,8 @@ platforms can be found in the CSS specification:
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="fallback" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">%NULL or the `GdkCursor` to fall back to when
-    this one cannot be supported</doc>
+            <doc xml:space="preserve">the `GdkCursor` to fall back to when
+  this one cannot be supported</doc>
             <type name="Cursor" c:type="GdkCursor*"/>
           </parameter>
         </parameters>
@@ -2529,7 +2527,7 @@ this can happen when the texture is too large or when the `GdkDisplay`
 it is used on does not support textured cursors.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">the fallback of the cursor or %NULL
- to use the default cursor as fallback.</doc>
+  to use the default cursor as fallback</doc>
           <type name="Cursor" c:type="GdkCursor*"/>
         </return-value>
         <parameters>
@@ -2607,7 +2605,7 @@ If the cursor is a named cursor, %NULL will be returned.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="cursor" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkCursor.</doc>
+            <doc xml:space="preserve">a `GdkCursor`</doc>
             <type name="Cursor" c:type="GdkCursor*"/>
           </instance-parameter>
         </parameters>
@@ -2748,7 +2746,7 @@ This is only relevant for keyboard devices.</doc>
         <attribute name="org.gtk.Method.get_property" value="tool"/>
         <doc xml:space="preserve">Retrieves the current tool for @device.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the `GdkDeviceTool`, or %NULL</doc>
+          <doc xml:space="preserve">the `GdkDeviceTool`</doc>
           <type name="DeviceTool" c:type="GdkDeviceTool*"/>
         </return-value>
         <parameters>
@@ -2875,7 +2873,7 @@ This is only relevant for keyboard devices.</doc>
 This ID is retrieved from the device, and does not change.
 See [method@Gdk.Device.get_vendor_id] for more information.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">the product ID, or %NULL</doc>
+          <doc xml:space="preserve">the product ID</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -2910,7 +2908,7 @@ This is only relevant for keyboard devices.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="device" transfer-ownership="none">
-            <doc xml:space="preserve">A #GdkDevice</doc>
+            <doc xml:space="preserve">A `GdkDevice`</doc>
             <type name="Device" c:type="GdkDevice*"/>
           </instance-parameter>
         </parameters>
@@ -2931,13 +2929,13 @@ This is only relevant for keyboard devices.</doc>
       </method>
       <method name="get_surface_at_position" c:identifier="gdk_device_get_surface_at_position">
         <doc xml:space="preserve">Obtains the surface underneath @device, returning the location of the
-device in @win_x and @win_y
+device in @win_x and @win_y.
 
 Returns %NULL if the surface tree under @device is not known to GDK
 (for example, belongs to another application).</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">the `GdkSurface` under the
-  device position, or %NULL</doc>
+  device position</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
@@ -2946,15 +2944,33 @@ Returns %NULL if the surface tree under @device is not known to GDK
             <type name="Device" c:type="GdkDevice*"/>
           </instance-parameter>
           <parameter name="win_x" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return location for the X coordinate of the device location,
-        relative to the surface origin, or %NULL.</doc>
+            <doc xml:space="preserve">return location for the X coordinate
+  of the device location relative to the surface origin</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="win_y" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return location for the Y coordinate of the device location,
-        relative to the surface origin, or %NULL.</doc>
+            <doc xml:space="preserve">return location for the Y coordinate
+  of the device location relative to the surface origin</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
+        </parameters>
+      </method>
+      <method name="get_timestamp" c:identifier="gdk_device_get_timestamp" version="4.2">
+        <doc xml:space="preserve">Returns the timestamp of the last activity for this device.
+
+In practice, this means the timestamp of the last event that was
+received from the OS for this device. (GTK may occasionally produce
+events for a device that are not received from the OS, and will not
+update the timestamp).</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">the timestamp of the last activity for this device</doc>
+          <type name="guint32" c:type="guint32"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="device" transfer-ownership="none">
+            <doc xml:space="preserve">a `GdkDevice`</doc>
+            <type name="Device" c:type="GdkDevice*"/>
+          </instance-parameter>
         </parameters>
       </method>
       <method name="get_vendor_id" c:identifier="gdk_device_get_vendor_id">
@@ -2987,7 +3003,7 @@ for this device.
  }
 ```</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">the vendor ID, or %NULL</doc>
+          <doc xml:space="preserve">the vendor ID</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3004,8 +3020,7 @@ left-to-right languages are in use on the keyboard.
 
 This is only relevant for keyboard devices.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if there are layouts with both directions,
-    %FALSE otherwise</doc>
+          <doc xml:space="preserve">%TRUE if there are layouts with both directions, %FALSE otherwise</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3031,7 +3046,7 @@ This is only relevant for keyboard devices.</doc>
       </property>
       <property name="display" writable="1" construct-only="1" transfer-ownership="none">
         <attribute name="org.gtk.Property.get" value="gdk_device_get_display"/>
-        <doc xml:space="preserve">The #GdkDisplay the #GdkDevice pertains to.</doc>
+        <doc xml:space="preserve">The `GdkDisplay` the `GdkDevice` pertains to.</doc>
         <type name="Display"/>
       </property>
       <property name="has-bidi-layouts" transfer-ownership="none">
@@ -3155,7 +3170,7 @@ individual pad feature to multiple actions. Only one mode is effective
 (current) for each given group, different groups may have different
 current modes. The number of available modes in a group can be found
 out through [method@Gdk.DevicePad.get_group_n_modes], and the current mode
-for a given group will be notified through events of type #GDK_PAD_GROUP_MODE.</doc>
+for a given group will be notified through events of type `GDK_PAD_GROUP_MODE`.</doc>
       <prerequisite name="Device"/>
       <method name="get_feature_group" c:identifier="gdk_device_pad_get_feature_group">
         <doc xml:space="preserve">Returns the group the given @feature and @idx belong to.
@@ -3386,7 +3401,8 @@ be accessed with [method@Gdk.Display.get_monitor_at_surface] and similar APIs.</
         <doc xml:space="preserve">Gets the default `GdkDisplay`.
 
 This is a convenience function for:
-`gdk_display_manager_get_default_display (gdk_display_manager_get ())`.</doc>
+
+    gdk_display_manager_get_default_display (gdk_display_manager_get ())</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">a `GdkDisplay`, or %NULL if
   there is no default display</doc>
@@ -3394,10 +3410,11 @@ This is a convenience function for:
         </return-value>
       </function>
       <function name="open" c:identifier="gdk_display_open">
-        <doc xml:space="preserve">Opens a display.</doc>
+        <doc xml:space="preserve">Opens a display.
+
+If opening the display fails, `NULL` is returned.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a `GdkDisplay`, or %NULL if the
-    display could not be opened</doc>
+          <doc xml:space="preserve">a `GdkDisplay`</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
@@ -3475,8 +3492,7 @@ handled synchronously, this function will do nothing.</doc>
         <doc xml:space="preserve">Returns a `GdkAppLaunchContext` suitable for launching
 applications on the given display.</doc>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">a new `GdkAppLaunchContext` for @display.
-    Free with g_object_unref() when done</doc>
+          <doc xml:space="preserve">a new `GdkAppLaunchContext` for @display</doc>
           <type name="AppLaunchContext" c:type="GdkAppLaunchContext*"/>
         </return-value>
         <parameters>
@@ -3546,7 +3562,7 @@ same list for the same display.
 You can listen to the GListModel::items-changed signal on
 this list to monitor changes to the monitor of this display.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">a #GListModel of `GdkMonitor`</doc>
+          <doc xml:space="preserve">a `GListModel` of `GdkMonitor`</doc>
           <type name="Gio.ListModel" c:type="GListModel*"/>
         </return-value>
         <parameters>
@@ -3613,7 +3629,7 @@ for the @display.</doc>
         <doc xml:space="preserve">Gets the startup notification ID for a Wayland display, or %NULL
 if no ID has been defined.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">the startup notification ID for @display, or %NULL</doc>
+          <doc xml:space="preserve">the startup notification ID for @display</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -3676,7 +3692,7 @@ to check if that is the case.
 On modern displays, this value is always %TRUE.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE if surfaces are created with an alpha channel or
-    %FALSE if the display does not support this functionality.</doc>
+  %FALSE if the display does not support this functionality.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3690,7 +3706,7 @@ On modern displays, this value is always %TRUE.</doc>
         <doc xml:space="preserve">Returns the list of seats known to @display.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve">the
-         list of seats known to the `GdkDisplay`</doc>
+  list of seats known to the `GdkDisplay`</doc>
           <type name="GLib.List" c:type="GList*">
             <type name="Seat"/>
           </type>
@@ -3727,14 +3743,14 @@ Free the returned arrays with g_free().</doc>
           </parameter>
           <parameter name="keys" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
             <doc xml:space="preserve">return
-    location for array of `GdkKeymapKey`, or %NULL</doc>
+  location for array of `GdkKeymapKey`</doc>
             <array length="3" zero-terminated="0" c:type="GdkKeymapKey**">
               <type name="KeymapKey" c:type="GdkKeymapKey*"/>
             </array>
           </parameter>
           <parameter name="keyvals" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
             <doc xml:space="preserve">return
-    location for array of keyvals, or %NULL</doc>
+  location for array of keyvals</doc>
             <array length="3" zero-terminated="0" c:type="guint**">
               <type name="guint" c:type="guint*"/>
             </array>
@@ -3776,7 +3792,7 @@ The returned array should be freed with g_free().</doc>
           </parameter>
           <parameter name="keys" direction="out" caller-allocates="0" transfer-ownership="full">
             <doc xml:space="preserve">return location
-    for an array of `GdkKeymapKey`</doc>
+  for an array of `GdkKeymapKey`</doc>
             <array length="2" zero-terminated="0" c:type="GdkKeymapKey**">
               <type name="KeymapKey" c:type="GdkKeymapKey*"/>
             </array>
@@ -3805,7 +3821,7 @@ is called to disable that feature.</doc>
           </instance-parameter>
           <parameter name="startup_id" transfer-ownership="none">
             <doc xml:space="preserve">a startup-notification identifier, for which
-    notification process should be completed</doc>
+  notification process should be completed</doc>
             <type name="utf8" c:type="const char*"/>
           </parameter>
         </parameters>
@@ -3912,21 +3928,20 @@ virtualized test environments.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="keyval" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return location for keyval, or %NULL</doc>
+            <doc xml:space="preserve">return location for keyval</doc>
             <type name="guint" c:type="guint*"/>
           </parameter>
           <parameter name="effective_group" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return location for effective
-    group, or %NULL</doc>
+            <doc xml:space="preserve">return location for effective group</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="level" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return location for level, or %NULL</doc>
+            <doc xml:space="preserve">return location for level</doc>
             <type name="gint" c:type="int*"/>
           </parameter>
           <parameter name="consumed" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return location for modifiers
-    that were used to determine the group or level, or %NULL</doc>
+            <doc xml:space="preserve">return location for modifiers that were used
+  to determine the group or level</doc>
             <type name="ModifierType" c:type="GdkModifierType*"/>
           </parameter>
         </parameters>
@@ -4022,7 +4037,7 @@ that you need to call this function before initializing GTK.
 
 When writing backend-specific code that is supposed to work with
 multiple GDK backends, you have to consider both compile time and
-runtime. At compile time, use the #GDK_WINDOWING_X11, #GDK_WINDOWING_WIN32
+runtime. At compile time, use the `GDK_WINDOWING_X11`, `GDK_WINDOWING_WIN32`
 macros, etc. to find out which backends are present in the GDK library
 you are building your application against. At runtime, use type-check
 macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:
@@ -4063,8 +4078,7 @@ backends wil be used.</doc>
         <attribute name="org.gtk.Method.get_property" value="default-display"/>
         <doc xml:space="preserve">Gets the default `GdkDisplay`.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a `GdkDisplay`, or %NULL if
-    there is no default display.</doc>
+          <doc xml:space="preserve">a `GdkDisplay`</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
@@ -4078,8 +4092,7 @@ backends wil be used.</doc>
         <doc xml:space="preserve">List all currently open displays.</doc>
         <return-value transfer-ownership="container">
           <doc xml:space="preserve">a newly
-    allocated `GSList` of `GdkDisplay` objects. Free with g_slist_free()
-    when you are done with it.</doc>
+  allocated `GSList` of `GdkDisplay` objects</doc>
           <type name="GLib.SList" c:type="GSList*">
             <type name="Display"/>
           </type>
@@ -4170,8 +4183,7 @@ the [signal@Gdk.Drag::dnd-finished] signal and delete the data at
 the source if [method@Gdk.Drag.get_selected_action] returns
 %GDK_ACTION_MOVE.</doc>
         <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve">a newly created [class@Gdk.Drag]
-  or %NULL on error</doc>
+          <doc xml:space="preserve">a newly created `GdkDrag`</doc>
           <type name="Drag" c:type="GdkDrag*"/>
         </return-value>
         <parameters>
@@ -4292,7 +4304,7 @@ has begun. GDK will move the surface in accordance with the ongoing
 drag operation. The surface is owned by @drag and will be destroyed
 when the drag operation is over.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">the drag surface, or %NULL</doc>
+          <doc xml:space="preserve">the drag surface</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
@@ -4478,7 +4490,7 @@ is returned.</doc>
       </member>
     </enumeration>
     <interface name="DragSurface" c:symbol-prefix="drag_surface" c:type="GdkDragSurface" glib:type-name="GdkDragSurface" glib:get-type="gdk_drag_surface_get_type" glib:type-struct="DragSurfaceInterface">
-      <doc xml:space="preserve">A #GdkDragSurface is an interface for surfaces used during DND.</doc>
+      <doc xml:space="preserve">A `GdkDragSurface` is an interface for surfaces used during DND.</doc>
       <prerequisite name="Surface"/>
       <method name="present" c:identifier="gdk_drag_surface_present">
         <doc xml:space="preserve">Present @drag_surface.</doc>
@@ -4533,7 +4545,7 @@ on screen.
 Note that the @region passed to this function is the minimum region that
 needs to be drawn and depending on implementation, windowing system and
 hardware in use, it might be necessary to draw a larger region. Drawing
-implementation must use [method@Gdk.DrawContext.get_frame_region() to
+implementation must use [method@Gdk.DrawContext.get_frame_region] to
 query the region that must be drawn.
 
 When using GTK, the widget system automatically places calls to
@@ -4577,7 +4589,7 @@ explicitly before calling this function.</doc>
         <attribute name="org.gtk.Method.get_property" value="display"/>
         <doc xml:space="preserve">Retrieves the `GdkDisplay` the @context is created for</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a `GdkDisplay` or %NULL</doc>
+          <doc xml:space="preserve">the `GdkDisplay`</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
@@ -4597,13 +4609,12 @@ surface that the @context determined needs to be repainted.
 If @context is not in between calls to [method@Gdk.DrawContext.begin_frame]
 and [method@Gdk.DrawContext.end_frame], %NULL will be returned.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a Cairo region or %NULL if not drawing
-    a frame.</doc>
+          <doc xml:space="preserve">a Cairo region</doc>
           <type name="cairo.Region" c:type="const cairo_region_t*"/>
         </return-value>
         <parameters>
           <instance-parameter name="context" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkDrawContext</doc>
+            <doc xml:space="preserve">a `GdkDrawContext`</doc>
             <type name="DrawContext" c:type="GdkDrawContext*"/>
           </instance-parameter>
         </parameters>
@@ -4612,7 +4623,7 @@ and [method@Gdk.DrawContext.end_frame], %NULL will be returned.</doc>
         <attribute name="org.gtk.Method.get_property" value="surface"/>
         <doc xml:space="preserve">Retrieves the surface that @context is bound to.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a #GdkSurface or %NULL</doc>
+          <doc xml:space="preserve">a `GdkSurface`</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
@@ -4630,7 +4641,7 @@ and [method@Gdk.DrawContext.end_frame]. In this situation, drawing commands
 may be effecting the contents of the @context's surface.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE if the context is between [method@Gdk.DrawContext.begin_frame]
-    and [method@Gdk.DrawContext.end_frame] calls.</doc>
+  and [method@Gdk.DrawContext.end_frame] calls.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -4799,7 +4810,7 @@ in a format that complies with one of the mime types.</doc>
           </instance-parameter>
           <parameter name="mime_types" transfer-ownership="none">
             <doc xml:space="preserve">
-    pointer to an array of mime types</doc>
+  pointer to an array of mime types</doc>
             <array c:type="const char**">
               <type name="utf8"/>
             </array>
@@ -4809,13 +4820,12 @@ in a format that complies with one of the mime types.</doc>
             <type name="gint" c:type="int"/>
           </parameter>
           <parameter name="cancellable" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">optional `GCancellable` object,
-    %NULL to ignore</doc>
+            <doc xml:space="preserve">optional `GCancellable` object</doc>
             <type name="Gio.Cancellable" c:type="GCancellable*"/>
           </parameter>
           <parameter name="callback" transfer-ownership="none" nullable="1" allow-none="1" scope="async" closure="4">
             <doc xml:space="preserve">a `GAsyncReadyCallback` to call when
-    the request is satisfied</doc>
+  the request is satisfied</doc>
             <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
           </parameter>
           <parameter name="user_data" transfer-ownership="none" nullable="1" allow-none="1">
@@ -4827,9 +4837,14 @@ in a format that complies with one of the mime types.</doc>
       <method name="read_finish" c:identifier="gdk_drop_read_finish" throws="1">
         <doc xml:space="preserve">Finishes an async drop read operation.
 
+Note that you must not use blocking read calls on the returned stream
+in the GTK thread, since some platforms might require communication with
+GTK to complete the data transfer. You can use async APIs such as
+g_input_stream_read_bytes_async().
+
 See [method@Gdk.Drop.read_async].</doc>
         <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve">the `GInputStream`, or %NULL</doc>
+          <doc xml:space="preserve">the `GInputStream`</doc>
           <type name="Gio.InputStream" c:type="GInputStream*"/>
         </return-value>
         <parameters>
@@ -5123,7 +5138,7 @@ an event structure.</doc>
       <method name="get_device" c:identifier="gdk_event_get_device">
         <doc xml:space="preserve">Returns the device of an event.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a #GdkDevice.</doc>
+          <doc xml:space="preserve">a `GdkDevice`</doc>
           <type name="Device" c:type="GdkDevice*"/>
         </return-value>
         <parameters>
@@ -5145,7 +5160,7 @@ Note: the `GdkDeviceTool` will be constant during
 the application lifetime, if settings must be stored
 persistently across runs, see [method@Gdk.DeviceTool.get_serial].</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">The current device tool, or %NULL</doc>
+          <doc xml:space="preserve">The current device tool</doc>
           <type name="DeviceTool" c:type="GdkDeviceTool*"/>
         </return-value>
         <parameters>
@@ -5158,7 +5173,7 @@ persistently across runs, see [method@Gdk.DeviceTool.get_serial].</doc>
       <method name="get_display" c:identifier="gdk_event_get_display">
         <doc xml:space="preserve">Retrieves the display associated to the @event.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a #GdkDisplay</doc>
+          <doc xml:space="preserve">a `GdkDisplay`</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
@@ -5275,7 +5290,7 @@ Emulated pointer events typically originate from a touch events.</doc>
       <method name="get_seat" c:identifier="gdk_event_get_seat">
         <doc xml:space="preserve">Returns the seat that originated the event.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a #GdkSeat.</doc>
+          <doc xml:space="preserve">a `GdkSeat`.</doc>
           <type name="Seat" c:type="GdkSeat*"/>
         </return-value>
         <parameters>
@@ -5288,7 +5303,7 @@ Emulated pointer events typically originate from a touch events.</doc>
       <method name="get_surface" c:identifier="gdk_event_get_surface">
         <doc xml:space="preserve">Extracts the surface associated with an event.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The #GdkSurface associated with the event</doc>
+          <doc xml:space="preserve">The `GdkSurface` associated with the event</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
@@ -5521,7 +5536,7 @@ emit signals for each phase that has been requested. (See the signals of the
 `GdkFrameClock` class for documentation of the phases.
 %GDK_FRAME_CLOCK_PHASE_UPDATE and the [signal@GdkFrameClock::update] signal
 are most interesting for application writers, and are used to update the
-animations, using the frame time given by [metohd@Gdk.FrameClock.get_frame_time].
+animations, using the frame time given by [method@Gdk.FrameClock.get_frame_time].
 
 The frame time is reported in microseconds and generally in the same
 timescale as g_get_monotonic_time(), however, it is not the same
@@ -5692,11 +5707,11 @@ interval after the last presentation time, and later than @base_time.</doc>
 for the current frame or a recent frame.
 
 The `GdkFrameTimings` object may not yet be complete: see
-[method@Gdk.FrameTimings.get_complete].</doc>
+[method@Gdk.FrameTimings.get_complete] and
+[method@Gdk.FrameClock.get_history_start].</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">the `GdkFrameTimings` object
-  for the specified frame, or %NULL if it is not available. See
-  [method@Gdk.FrameClock.get_history_start].</doc>
+  for the specified frame, or %NULL if it is not available</doc>
           <type name="FrameTimings" c:type="GdkFrameTimings*"/>
         </return-value>
         <parameters>
@@ -6062,7 +6077,7 @@ until [method@Gdk.GLContext.make_current] is called.</doc>
       <function name="get_current" c:identifier="gdk_gl_context_get_current">
         <doc xml:space="preserve">Retrieves the current `GdkGLContext`.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">the current `GdkGLContext`, or %NULL</doc>
+          <doc xml:space="preserve">the current `GdkGLContext`</doc>
           <type name="GLContext" c:type="GdkGLContext*"/>
         </return-value>
       </function>
@@ -6084,7 +6099,7 @@ See [method@Gdk.GLContext.set_debug_enabled].</doc>
       <method name="get_display" c:identifier="gdk_gl_context_get_display">
         <doc xml:space="preserve">Retrieves the display the @context is created for</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a `GdkDisplay` or %NULL</doc>
+          <doc xml:space="preserve">a `GdkDisplay`</doc>
           <type name="Display" c:type="GdkDisplay*"/>
         </return-value>
         <parameters>
@@ -6135,7 +6150,7 @@ See [method@Gdk.GLContext.set_required_version].</doc>
         <attribute name="org.gtk.Method.get_property" value="shared-context"/>
         <doc xml:space="preserve">Retrieves the `GdkGLContext` that this @context share data with.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a `GdkGLContext` or %NULL</doc>
+          <doc xml:space="preserve">a `GdkGLContext`</doc>
           <type name="GLContext" c:type="GdkGLContext*"/>
         </return-value>
         <parameters>
@@ -6148,7 +6163,7 @@ See [method@Gdk.GLContext.set_required_version].</doc>
       <method name="get_surface" c:identifier="gdk_gl_context_get_surface">
         <doc xml:space="preserve">Retrieves the surface used by the @context.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a `GdkSurface` or %NULL</doc>
+          <doc xml:space="preserve">a `GdkSurface`</doc>
           <type name="Surface" c:type="GdkSurface*"/>
         </return-value>
         <parameters>
@@ -6478,7 +6493,7 @@ function has been called.</doc>
       </method>
     </class>
     <enumeration name="Gravity" glib:type-name="GdkGravity" glib:get-type="gdk_gravity_get_type" c:type="GdkGravity">
-      <doc xml:space="preserve">Defines the reference point of a surface and is used in #GdkPopupLayout.</doc>
+      <doc xml:space="preserve">Defines the reference point of a surface and is used in `GdkPopupLayout`.</doc>
       <member name="north_west" value="1" c:identifier="GDK_GRAVITY_NORTH_WEST" glib:nick="north-west">
         <doc xml:space="preserve">the reference point is at the top left corner.</doc>
       </member>
@@ -6697,7 +6712,7 @@ function has been called.</doc>
       <doc xml:space="preserve">An enumeration describing the type of an input device in general terms.</doc>
       <member name="mouse" value="0" c:identifier="GDK_SOURCE_MOUSE" glib:nick="mouse">
         <doc xml:space="preserve">the device is a mouse. (This will be reported for the core
-                   pointer, even if it is something else, such as a trackball.)</doc>
+  pointer, even if it is something else, such as a trackball.)</doc>
       </member>
       <member name="pen" value="1" c:identifier="GDK_SOURCE_PEN" glib:nick="pen">
         <doc xml:space="preserve">the device is a stylus of a graphics tablet or similar device.</doc>
@@ -6707,18 +6722,18 @@ function has been called.</doc>
       </member>
       <member name="touchscreen" value="3" c:identifier="GDK_SOURCE_TOUCHSCREEN" glib:nick="touchscreen">
         <doc xml:space="preserve">the device is a direct-input touch device, such
-    as a touchscreen or tablet</doc>
+  as a touchscreen or tablet</doc>
       </member>
       <member name="touchpad" value="4" c:identifier="GDK_SOURCE_TOUCHPAD" glib:nick="touchpad">
         <doc xml:space="preserve">the device is an indirect touch device, such
-    as a touchpad</doc>
+  as a touchpad</doc>
       </member>
       <member name="trackpoint" value="5" c:identifier="GDK_SOURCE_TRACKPOINT" glib:nick="trackpoint">
         <doc xml:space="preserve">the device is a trackpoint</doc>
       </member>
       <member name="tablet_pad" value="6" c:identifier="GDK_SOURCE_TABLET_PAD" glib:nick="tablet-pad">
         <doc xml:space="preserve">the device is a "pad", a collection of buttons,
-    rings and strips found in drawing tablets</doc>
+  rings and strips found in drawing tablets</doc>
       </member>
     </enumeration>
     <constant name="KEY_0" value="48" c:type="GDK_KEY_0">
@@ -13697,7 +13712,7 @@ Note that we ignore Caps Lock for matching.</doc>
       </member>
       <member name="partial" value="1" c:identifier="GDK_KEY_MATCH_PARTIAL" glib:nick="partial">
         <doc xml:space="preserve">The key event matches if keyboard state
-    (specifically, the currently active group) is ignored</doc>
+  (specifically, the currently active group) is ignored</doc>
       </member>
       <member name="exact" value="2" c:identifier="GDK_KEY_MATCH_EXACT" glib:nick="exact">
         <doc xml:space="preserve">The key event matches</doc>
@@ -13752,20 +13767,20 @@ byte each of red, green and blue. It is not endian-dependent, so
 CAIRO_FORMAT_ARGB32 is represented by different `GdkMemoryFormats`
 on architectures with different endiannesses.
 
-Its naming is modelled after VkFormat (see
-https://www.khronos.org/registry/vulkan/specs/1.0/html/vkspec.html#VkFormat
+Its naming is modelled after
+[VkFormat](https://www.khronos.org/registry/vulkan/specs/1.0/html/vkspec.html#VkFormat)
 for details).</doc>
       <member name="b8g8r8a8_premultiplied" value="0" c:identifier="GDK_MEMORY_B8G8R8A8_PREMULTIPLIED" glib:nick="b8g8r8a8-premultiplied">
         <doc xml:space="preserve">4 bytes; for blue, green, red, alpha.
-    The color values are premultiplied with the alpha value.</doc>
+  The color values are premultiplied with the alpha value.</doc>
       </member>
       <member name="a8r8g8b8_premultiplied" value="1" c:identifier="GDK_MEMORY_A8R8G8B8_PREMULTIPLIED" glib:nick="a8r8g8b8-premultiplied">
         <doc xml:space="preserve">4 bytes; for alpha, red, green, blue.
-    The color values are premultiplied with the alpha value.</doc>
+  The color values are premultiplied with the alpha value.</doc>
       </member>
       <member name="r8g8b8a8_premultiplied" value="2" c:identifier="GDK_MEMORY_R8G8B8A8_PREMULTIPLIED" glib:nick="r8g8b8a8-premultiplied">
         <doc xml:space="preserve">4 bytes; for red, green, blue, alpha
-    The color values are premultiplied with the alpha value.</doc>
+  The color values are premultiplied with the alpha value.</doc>
       </member>
       <member name="b8g8r8a8" value="3" c:identifier="GDK_MEMORY_B8G8R8A8" glib:nick="b8g8r8a8">
         <doc xml:space="preserve">4 bytes; for blue, green, red, alpha.</doc>
@@ -13787,7 +13802,7 @@ for details).</doc>
       </member>
       <member name="n_formats" value="9" c:identifier="GDK_MEMORY_N_FORMATS" glib:nick="n-formats">
         <doc xml:space="preserve">The number of formats. This value will change as
-    more formats get added, so do not rely on its concrete integer.</doc>
+  more formats get added, so do not rely on its concrete integer.</doc>
       </member>
     </enumeration>
     <class name="MemoryTexture" c:symbol-prefix="memory_texture" c:type="GdkMemoryTexture" parent="Texture" glib:type-name="GdkMemoryTexture" glib:get-type="gdk_memory_texture_get_type" glib:type-struct="MemoryTextureClass">
@@ -13958,8 +13973,7 @@ display backend.
 The PNP ID registry is located at
 [https://uefi.org/pnp_id_list](https://uefi.org/pnp_id_list).</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">the name of the manufacturer,
-  or %NULL</doc>
+          <doc xml:space="preserve">the name of the manufacturer</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -13973,7 +13987,7 @@ The PNP ID registry is located at
         <attribute name="org.gtk.Method.get_property" value="model"/>
         <doc xml:space="preserve">Gets the string identifying the monitor model, if available.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">the monitor model, or %NULL</doc>
+          <doc xml:space="preserve">the monitor model</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -14001,7 +14015,7 @@ is returned as 60000.</doc>
         </parameters>
       </method>
       <method name="get_scale_factor" c:identifier="gdk_monitor_get_scale_factor">
-        <attribute name="org.gtk.Method.get_prooperty" value="scale-factor"/>
+        <attribute name="org.gtk.Method.get_property" value="scale-factor"/>
         <doc xml:space="preserve">Gets the internal scale factor that maps from monitor coordinates
 to device pixels.
 
@@ -14278,7 +14292,7 @@ useful for implementing subclasses and should not be used by applications:
         <doc xml:space="preserve">Returns a paintable that has the given intrinsic size and draws nothing.
 
 This is often useful for implementing the
-#GdkPaintableInterface.get_current_image() virtual function
+[vfunc@Gdk.Paintable.get_current_image] virtual function
 when the paintable is in an incomplete state (like a
 [class@Gtk.MediaStream] before receiving the first frame).</doc>
         <return-value transfer-ownership="full">
@@ -14305,7 +14319,7 @@ for example to take a screenshot of a running animation.
 If the @paintable is already immutable, it will return itself.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve">An immutable paintable for the current
-    contents of @paintable.</doc>
+  contents of @paintable</doc>
           <type name="Paintable" c:type="GdkPaintable*"/>
         </return-value>
         <parameters>
@@ -14454,32 +14468,30 @@ other dimension when only one dimension is given.</doc>
           </instance-parameter>
           <parameter name="specified_width" transfer-ownership="none">
             <doc xml:space="preserve">the width @paintable could be drawn into or
-    0.0 if unknown</doc>
+  0.0 if unknown</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="specified_height" transfer-ownership="none">
             <doc xml:space="preserve">the height @paintable could be drawn into or
-    0.0 if unknown</doc>
+  0.0 if unknown</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="default_width" transfer-ownership="none">
             <doc xml:space="preserve">the width @paintable would be drawn into if
-    no other constraints were given</doc>
+  no other constraints were given</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="default_height" transfer-ownership="none">
             <doc xml:space="preserve">the height @paintable would be drawn into if
-    no other constraints were given</doc>
+  no other constraints were given</doc>
             <type name="gdouble" c:type="double"/>
           </parameter>
           <parameter name="concrete_width" direction="out" caller-allocates="0" transfer-ownership="full">
-            <doc xml:space="preserve">will be set to the concrete width
-    computed.</doc>
+            <doc xml:space="preserve">will be set to the concrete width computed</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="concrete_height" direction="out" caller-allocates="0" transfer-ownership="full">
-            <doc xml:space="preserve">will be set to the concrete height
-    computed.</doc>
+            <doc xml:space="preserve">will be set to the concrete height computed</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
         </parameters>
@@ -14493,7 +14505,7 @@ for example to take a screenshot of a running animation.
 If the @paintable is already immutable, it will return itself.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve">An immutable paintable for the current
-    contents of @paintable.</doc>
+  contents of @paintable</doc>
           <type name="Paintable" c:type="GdkPaintable*"/>
         </return-value>
         <parameters>
@@ -14694,23 +14706,23 @@ the contents of a toplevel surface being resized.</doc>
 Implementations use these for optimizations such as caching.</doc>
       <member name="size" value="1" c:identifier="GDK_PAINTABLE_STATIC_SIZE" glib:nick="size">
         <doc xml:space="preserve">The size is immutable.
-    The [signal@GdkPaintable::invalidate-size] signal will never be
-    emitted.</doc>
+  The [signal@GdkPaintable::invalidate-size] signal will never be
+  emitted.</doc>
       </member>
       <member name="contents" value="2" c:identifier="GDK_PAINTABLE_STATIC_CONTENTS" glib:nick="contents">
         <doc xml:space="preserve">The content is immutable.
-    The [signal@GdkPaintable::invalidate-contents] signal will never be
-    emitted.</doc>
+  The [signal@GdkPaintable::invalidate-contents] signal will never be
+  emitted.</doc>
       </member>
     </bitfield>
     <record name="PaintableInterface" c:type="GdkPaintableInterface" glib:is-gtype-struct-for="Paintable">
       <doc xml:space="preserve">The list of functions that can be implemented for the `GdkPaintable`
 interface.
 
-Note that apart from the #GdkPaintableInterface.snapshot() function, no
-virtual function of this interface is mandatory to implement, though it
-is a good idea to implement #GdkPaintableInterface.get_current_image()
-for non-static paintables and #GdkPaintableInterface.get_flags() if the
+Note that apart from the [vfunc@Gdk.PaintableInterface.snapshot] function,
+no virtual function of this interface is mandatory to implement, though it
+is a good idea to implement [vfunc@Gdk.PaintableInterface.get_current_image]
+for non-static paintables and [vfunc@Gdk.PaintableInterface.get_flags] if the
 image is not dynamic as the default implementation returns no flags and
 that will make the implementation likely quite slow.</doc>
       <field name="g_iface" readable="0" private="1">
@@ -14745,7 +14757,7 @@ that will make the implementation likely quite slow.</doc>
         <callback name="get_current_image">
           <return-value transfer-ownership="full">
             <doc xml:space="preserve">An immutable paintable for the current
-    contents of @paintable.</doc>
+  contents of @paintable</doc>
             <type name="Paintable" c:type="GdkPaintable*"/>
           </return-value>
           <parameters>
@@ -14909,7 +14921,7 @@ or after the [signal@Gdk.Surface::layout] signal is emitted.</doc>
         </parameters>
       </method>
       <method name="present" c:identifier="gdk_popup_present">
-        <doc xml:space="preserve">Present @popup after having processed the #GdkPopupLayout rules.
+        <doc xml:space="preserve">Present @popup after having processed the `GdkPopupLayout` rules.
 
 If the popup was previously now showing, it will be showed,
 otherwise it will change position according to @layout.
@@ -14961,7 +14973,7 @@ the [signal@Gdk.Surface::layout] signal will not me emitted.</doc>
     <record name="PopupInterface" c:type="GdkPopupInterface" disguised="1" glib:is-gtype-struct-for="Popup"/>
     <record name="PopupLayout" c:type="GdkPopupLayout" glib:type-name="GdkPopupLayout" glib:get-type="gdk_popup_layout_get_type" c:symbol-prefix="popup_layout">
       <doc xml:space="preserve">The `GdkPopupLayout` struct contains information that is
-necessary position a [interface@Gdk.Popup] relative to its parent.
+necessary position a [iface@Gdk.Popup] relative to its parent.
 
 The positioning requires a negotiation with the windowing system,
 since it depends on external constraints, such as the position of
@@ -15516,9 +15528,9 @@ volumes in 2D and 3D.</doc>
         <type name="gint" c:type="int"/>
       </field>
       <method name="contains_point" c:identifier="gdk_rectangle_contains_point">
-        <doc xml:space="preserve">Returns #TRUE if @rect contains the point described by @x and @y.</doc>
+        <doc xml:space="preserve">Returns %TRUE if @rect contains the point described by @x and @y.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">#TRUE if @rect contains the point</doc>
+          <doc xml:space="preserve">%TRUE if @rect contains the point</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -15576,7 +15588,7 @@ itself, pass %NULL for @dest.</doc>
           </parameter>
           <parameter name="dest" direction="out" caller-allocates="1" transfer-ownership="none" optional="1" allow-none="1">
             <doc xml:space="preserve">return location for the
-  intersection of @src1 and @src2, or %NULL</doc>
+  intersection of @src1 and @src2</doc>
             <type name="Rectangle" c:type="GdkRectangle*"/>
           </parameter>
         </parameters>
@@ -15746,7 +15758,7 @@ that belong to a user.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="seat" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkSeat</doc>
+            <doc xml:space="preserve">a `GdkSeat`</doc>
             <type name="Seat" c:type="GdkSeat*"/>
           </instance-parameter>
           <parameter name="capabilities" transfer-ownership="none">
@@ -15851,7 +15863,7 @@ that belong to a user.</doc>
 
 The tool may later be assigned to a device (i.e. on
 proximity with a tablet). The device will emit the
-[signalGdkDevice::tool-changed] signal accordingly.
+[signal@Gdk.Device::tool-changed] signal accordingly.
 
 A same tool may be used by several devices.</doc>
         <return-value transfer-ownership="none">
@@ -16010,9 +16022,8 @@ The context is disconnected from any particular surface or surface.
 If the creation of the `GdkGLContext` failed, @error will be set.
 Before using the returned `GdkGLContext`, you will need to
 call [method@Gdk.GLContext.make_current] or [method@Gdk.GLContext.realize].</doc>
-        <return-value transfer-ownership="full">
-          <doc xml:space="preserve">the newly created `GdkGLContext`,
-  or %NULL on error</doc>
+        <return-value transfer-ownership="full" nullable="1">
+          <doc xml:space="preserve">the newly created `GdkGLContext`</doc>
           <type name="GLContext" c:type="GdkGLContext*"/>
         </return-value>
         <parameters>
@@ -16105,12 +16116,11 @@ before that happens.</doc>
 `GdkSurface`.
 
 If the return value is %NULL then there is no custom cursor set on
-the surface, and it is using the cursor for its parent surface.</doc>
+the surface, and it is using the cursor for its parent surface.
+
+Use [method@Gdk.Surface.set_cursor] to unset the cursor of the surface.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a `GdkCursor`, or %NULL. The
-  returned object is owned by the `GdkSurface` and should not be
-  unreferenced directly. Use [method@Gdk.Surface.set_cursor] to
-  unset the cursor of the surface</doc>
+          <doc xml:space="preserve">a `GdkCursor`</doc>
           <type name="Cursor" c:type="GdkCursor*"/>
         </return-value>
         <parameters>
@@ -16125,12 +16135,11 @@ the surface, and it is using the cursor for its parent surface.</doc>
 specified `GdkSurface`.
 
 If the return value is %NULL then there is no custom cursor set on the
-specified surface, and it is using the cursor for its parent surface.</doc>
+specified surface, and it is using the cursor for its parent surface.
+
+Use [method@Gdk.Surface.set_cursor] to unset the cursor of the surface.</doc>
         <return-value transfer-ownership="none" nullable="1">
-          <doc xml:space="preserve">a `GdkCursor`, or %NULL. The
-  returned object is owned by the `GdkSurface` and should not be
-  unreferenced directly. Use [method@Gdk.Surface.set_cursor] to unset
-  the cursor of the surface</doc>
+          <doc xml:space="preserve">a `GdkCursor`</doc>
           <type name="Cursor" c:type="GdkCursor*"/>
         </return-value>
         <parameters>
@@ -16163,15 +16172,15 @@ left corner of @surface.</doc>
             <type name="Device" c:type="GdkDevice*"/>
           </parameter>
           <parameter name="x" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return locatio for the X coordinate of @device, or %NULL</doc>
+            <doc xml:space="preserve">return location for the X coordinate of @device</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="y" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return location for the Y coordinate of @device, or %NULL</doc>
+            <doc xml:space="preserve">return location for the Y coordinate of @device</doc>
             <type name="gdouble" c:type="double*"/>
           </parameter>
           <parameter name="mask" direction="out" caller-allocates="0" transfer-ownership="full" optional="1" allow-none="1">
-            <doc xml:space="preserve">return location for the modifier mask, or %NULL</doc>
+            <doc xml:space="preserve">return location for the modifier mask</doc>
             <type name="ModifierType" c:type="GdkModifierType*"/>
           </parameter>
         </parameters>
@@ -16436,7 +16445,7 @@ This function only works for toplevel surfaces.
 GTK will update this property automatically if the @surface background
 is opaque, as we know where the opaque regions are. If your surface
 background is not opaque, please update this property in your
-#GtkWidgetClass.css_changed() handler.</doc>
+[vfunc@Gtk.Widget.css_changed] handler.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -16446,7 +16455,8 @@ background is not opaque, please update this property in your
             <type name="Surface" c:type="GdkSurface*"/>
           </instance-parameter>
           <parameter name="region" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">a region, or %NULL</doc>
+            <doc xml:space="preserve">a region, or %NULL to make the entire
+  surface opaque</doc>
             <type name="cairo.Region" c:type="cairo_region_t*"/>
           </parameter>
         </parameters>
@@ -16658,7 +16668,7 @@ are PNG and JPEG, though more formats might be available.
 
 If %NULL is returned, then @error will be set.</doc>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">A newly-created `GdkTexture` or %NULL if an error occurred.</doc>
+          <doc xml:space="preserve">A newly-created `GdkTexture`</doc>
           <type name="Texture" c:type="GdkTexture*"/>
         </return-value>
         <parameters>
@@ -16719,7 +16729,7 @@ cairo_surface_mark_dirty (surface);
           </instance-parameter>
           <parameter name="data" transfer-ownership="none">
             <doc xml:space="preserve">pointer to enough memory to be filled with the
-    downloaded data of @texture</doc>
+  downloaded data of @texture</doc>
             <array zero-terminated="0" c:type="guchar*">
               <type name="guint8" c:type="guchar"/>
             </array>
@@ -16793,9 +16803,9 @@ look into using the gdk-pixbuf library.</doc>
     </class>
     <record name="TextureClass" c:type="GdkTextureClass" disguised="1" glib:is-gtype-struct-for="Texture"/>
     <record name="TimeCoord" c:type="GdkTimeCoord">
-      <doc xml:space="preserve">A #GdkTimeCoord stores a single event in a motion history.</doc>
+      <doc xml:space="preserve">A `GdkTimeCoord` stores a single event in a motion history.</doc>
       <field name="time" writable="1">
-        <doc xml:space="preserve">The timestamp for this event.</doc>
+        <doc xml:space="preserve">The timestamp for this event</doc>
         <type name="guint32" c:type="guint32"/>
       </field>
       <field name="flags" writable="1">
@@ -16825,7 +16835,7 @@ You might use this function to implement draggable titlebars.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="toplevel" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevel</doc>
+            <doc xml:space="preserve">a `GdkToplevel`</doc>
             <type name="Toplevel" c:type="GdkToplevel*"/>
           </instance-parameter>
           <parameter name="device" transfer-ownership="none">
@@ -17218,8 +17228,7 @@ right-click on the window decorations.</doc>
         <doc xml:space="preserve">Returns whether the desktop environment supports
 tiled window states.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if the desktop environment supports
-    tiled window states</doc>
+          <doc xml:space="preserve">%TRUE if the desktop environment supports tiled window states</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -17324,19 +17333,19 @@ how a toplevel surface should be placed and behave on-screen.
 The size is in &#x201D;application pixels&#x201D;, not
 &#x201D;device pixels&#x201D; (see gdk_surface_get_scale_factor()).</doc>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">newly created instance of #GdkToplevelLayout</doc>
+          <doc xml:space="preserve">newly created instance of `GdkToplevelLayout`</doc>
           <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
         </return-value>
       </constructor>
       <method name="copy" c:identifier="gdk_toplevel_layout_copy">
-        <doc xml:space="preserve">Create a new #GdkToplevelLayout and copy the contents of @layout into it.</doc>
+        <doc xml:space="preserve">Create a new `GdkToplevelLayout` and copy the contents of @layout into it.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve">a copy of @layout.</doc>
           <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -17345,16 +17354,16 @@ The size is in &#x201D;application pixels&#x201D;, not
         <doc xml:space="preserve">Check whether @layout and @other has identical layout properties.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE if @layout and @other have identical layout properties,
-    otherwise %FALSE.</doc>
+  otherwise %FALSE.</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="other" transfer-ownership="none">
-            <doc xml:space="preserve">another #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">another `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </parameter>
         </parameters>
@@ -17369,7 +17378,7 @@ fullscreen, or %FALSE, if it should go unfullscreen.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a ``GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="fullscreen" direction="out" caller-allocates="0" transfer-ownership="full">
@@ -17387,7 +17396,7 @@ the surface on.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -17402,7 +17411,7 @@ fullscreen, or %FALSE, if it should go unmaximized.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="maximized" direction="out" caller-allocates="0" transfer-ownership="full">
@@ -17420,7 +17429,7 @@ to resize the surface.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -17433,7 +17442,7 @@ to resize the surface.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -17446,7 +17455,7 @@ to be fullscreen when presented.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="fullscreen" transfer-ownership="none">
@@ -17467,7 +17476,7 @@ to be maximized when presented.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="maximized" transfer-ownership="none">
@@ -17484,7 +17493,7 @@ to resize the surface after it has been presented.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
           <parameter name="resizable" transfer-ownership="none">
@@ -17500,7 +17509,7 @@ to resize the surface after it has been presented.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="layout" transfer-ownership="none">
-            <doc xml:space="preserve">a #GdkToplevelLayout</doc>
+            <doc xml:space="preserve">a `GdkToplevelLayout`</doc>
             <type name="ToplevelLayout" c:type="GdkToplevelLayout*"/>
           </instance-parameter>
         </parameters>
@@ -17836,10 +17845,10 @@ for example in response to a change of the surface size.</doc>
       </glib:signal>
     </class>
     <enumeration name="VulkanError" glib:type-name="GdkVulkanError" glib:get-type="gdk_vulkan_error_get_type" c:type="GdkVulkanError" glib:error-domain="gdk-vulkan-error-quark">
-      <doc xml:space="preserve">Error enumeration for #GdkVulkanContext.</doc>
+      <doc xml:space="preserve">Error enumeration for `GdkVulkanContext`.</doc>
       <member name="unsupported" value="0" c:identifier="GDK_VULKAN_ERROR_UNSUPPORTED" glib:nick="unsupported">
         <doc xml:space="preserve">Vulkan is not supported on this backend or has not been
-    compiled in.</doc>
+  compiled in.</doc>
       </member>
       <member name="not_available" value="1" c:identifier="GDK_VULKAN_ERROR_NOT_AVAILABLE" glib:nick="not-available">
         <doc xml:space="preserve">Vulkan support is not available on this Surface</doc>
@@ -17853,8 +17862,8 @@ for example in response to a change of the surface size.</doc>
     <function name="cairo_draw_from_gl" c:identifier="gdk_cairo_draw_from_gl">
       <doc xml:space="preserve">The main way to draw GL content in GTK.
 
-It takes a render buffer ID (@source_type == #GL_RENDERBUFFER) or a texture
-id (@source_type == #GL_TEXTURE) and draws it onto @cr with an OVER operation,
+It takes a render buffer ID (@source_type == GL_RENDERBUFFER) or a texture
+id (@source_type == GL_TEXTURE) and draws it onto @cr with an OVER operation,
 respecting the current clip. The top left corner of the rectangle specified
 by @x, @y, @width and @height will be drawn at the current (0,0) position of
 the `cairo_t`.
@@ -17865,8 +17874,8 @@ used in the general case. In the case of direct drawing to a surface with
 no special effects applied to @cr it will however use a more efficient
 approach.
 
-For #GL_RENDERBUFFER the code will always fall back to software for buffers
-with alpha components, so make sure you use #GL_TEXTURE if using alpha.
+For GL_RENDERBUFFER the code will always fall back to software for buffers
+with alpha components, so make sure you use GL_TEXTURE if using alpha.
 
 Calling this may change the current GL context.</doc>
       <return-value transfer-ownership="none">
@@ -17922,7 +17931,7 @@ Calling this may change the current GL context.</doc>
           <type name="cairo.Context" c:type="cairo_t*"/>
         </parameter>
         <parameter name="rectangle" transfer-ownership="none">
-          <doc xml:space="preserve">a #GdkRectangle</doc>
+          <doc xml:space="preserve">a `GdkRectangle`</doc>
           <type name="Rectangle" c:type="const GdkRectangle*"/>
         </parameter>
       </parameters>
@@ -17938,7 +17947,7 @@ Calling this may change the current GL context.</doc>
           <type name="cairo.Context" c:type="cairo_t*"/>
         </parameter>
         <parameter name="region" transfer-ownership="none">
-          <doc xml:space="preserve">a #cairo_region_t</doc>
+          <doc xml:space="preserve">a `cairo_region_t`</doc>
           <type name="cairo.Region" c:type="const cairo_region_t*"/>
         </parameter>
       </parameters>
@@ -17950,7 +17959,7 @@ Calling this may change the current GL context.</doc>
 This function takes into account device offsets that might be
 set with cairo_surface_set_device_offset().</doc>
       <return-value transfer-ownership="full">
-        <doc xml:space="preserve">A `cairo_region_t`; must be freed with cairo_region_destroy()</doc>
+        <doc xml:space="preserve">A `cairo_region_t`</doc>
         <type name="cairo.Region" c:type="cairo_region_t*"/>
       </return-value>
       <parameters>
@@ -17974,7 +17983,7 @@ so that the origin of @pixbuf is @pixbuf_x, @pixbuf_y.</doc>
           <type name="cairo.Context" c:type="cairo_t*"/>
         </parameter>
         <parameter name="pixbuf" transfer-ownership="none">
-          <doc xml:space="preserve">a #GdkPixbuf</doc>
+          <doc xml:space="preserve">a `GdkPixbuf`</doc>
           <type name="GdkPixbuf.Pixbuf" c:type="const GdkPixbuf*"/>
         </parameter>
         <parameter name="pixbuf_x" transfer-ownership="none">
@@ -17988,7 +17997,7 @@ so that the origin of @pixbuf is @pixbuf_x, @pixbuf_y.</doc>
       </parameters>
     </function>
     <function name="cairo_set_source_rgba" c:identifier="gdk_cairo_set_source_rgba">
-      <doc xml:space="preserve">Sets the specified #GdkRGBA as the source color of @cr.</doc>
+      <doc xml:space="preserve">Sets the specified `GdkRGBA` as the source color of @cr.</doc>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -17998,7 +18007,7 @@ so that the origin of @pixbuf is @pixbuf_x, @pixbuf_y.</doc>
           <type name="cairo.Context" c:type="cairo_t*"/>
         </parameter>
         <parameter name="rgba" transfer-ownership="none">
-          <doc xml:space="preserve">a #GdkRGBA</doc>
+          <doc xml:space="preserve">a `GdkRGBA`</doc>
           <type name="RGBA" c:type="const GdkRGBA*"/>
         </parameter>
       </parameters>
@@ -18010,7 +18019,7 @@ The default I/O priority is %G_PRIORITY_DEFAULT (i.e. 0), and lower numbers
 indicate a higher priority.
 
 When the operation is finished, @callback will be called. You must then
-call [func@content_deserialize_finish] to get the result of the operation.</doc>
+call [func@Gdk.content_deserialize_finish] to get the result of the operation.</doc>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -18127,7 +18136,7 @@ The default I/O priority is %G_PRIORITY_DEFAULT (i.e. 0), and lower numbers
 indicate a higher priority.
 
 When the operation is finished, @callback will be called. You must then
-call [func@content_serialize_finish] to get the result of the operation.</doc>
+call [func@Gdk.content_serialize_finish] to get the result of the operation.</doc>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -18149,7 +18158,7 @@ call [func@content_serialize_finish] to get the result of the operation.</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="cancellable" transfer-ownership="none" nullable="1" allow-none="1">
-          <doc xml:space="preserve">optional #GCancellable object</doc>
+          <doc xml:space="preserve">optional `GCancellable` object</doc>
           <type name="Gio.Cancellable" c:type="GCancellable*"/>
         </parameter>
         <parameter name="callback" transfer-ownership="none" nullable="1" allow-none="1" scope="async" closure="6">
@@ -18283,9 +18292,9 @@ If not, this function returns %FALSE.</doc>
 
 If @string is not a valid mime type, %NULL is returned instead.
 See RFC 2048 for the syntax if mime types.</doc>
-      <return-value transfer-ownership="none">
-        <doc xml:space="preserve">An interned string for the canonicalized mime type
-    or %NULL if the string wasn't a valid mime type</doc>
+      <return-value transfer-ownership="none" nullable="1">
+        <doc xml:space="preserve">An interned string for the canonicalized
+  mime type or %NULL if the string wasn't a valid mime type</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
@@ -18298,7 +18307,7 @@ See RFC 2048 for the syntax if mime types.</doc>
     <function name="keyval_convert_case" c:identifier="gdk_keyval_convert_case">
       <doc xml:space="preserve">Obtains the upper- and lower-case versions of the keyval @symbol.
 
-Examples of keyvals are #GDK_KEY_a, #GDK_KEY_Enter, #GDK_KEY_F1, etc.</doc>
+Examples of keyvals are `GDK_KEY_a`, `GDK_KEY_Enter`, `GDK_KEY_F1`, etc.</doc>
       <return-value transfer-ownership="none">
         <type name="none" c:type="void"/>
       </return-value>
@@ -18325,7 +18334,7 @@ The names are the same as those in the
 but without the leading &#x201C;GDK_KEY_&#x201D;.</doc>
       <return-value transfer-ownership="none">
         <doc xml:space="preserve">the corresponding key value, or %GDK_KEY_VoidSymbol
-    if the key name is not a valid key</doc>
+  if the key name is not a valid key</doc>
         <type name="guint" c:type="guint"/>
       </return-value>
       <parameters>
@@ -18371,8 +18380,7 @@ The names are the same as those in the
 but without the leading &#x201C;GDK_KEY_&#x201D;.</doc>
       <return-value transfer-ownership="none" nullable="1">
         <doc xml:space="preserve">a string containing the name
-    of the key, or %NULL if @keyval is not a valid key. The string
-    should not be modified.</doc>
+  of the key</doc>
         <type name="utf8" c:type="const char*"/>
       </return-value>
       <parameters>
@@ -18433,7 +18441,7 @@ keyvals, such as %GDK_KEY_KP_Decimal.</doc>
       <doc xml:space="preserve">Returns a paintable that has the given intrinsic size and draws nothing.
 
 This is often useful for implementing the
-#GdkPaintableInterface.get_current_image() virtual function
+[vfunc@Gdk.Paintable.get_current_image] virtual function
 when the paintable is in an incomplete state (like a
 [class@Gtk.MediaStream] before receiving the first frame).</doc>
       <return-value transfer-ownership="full">
@@ -18523,9 +18531,8 @@ of text, such as when text is selected.</doc>
           <type name="gint" c:type="int"/>
         </parameter>
         <parameter name="index_ranges" transfer-ownership="none">
-          <doc xml:space="preserve">array of byte indexes into the layout,
-    where even members of array are start indexes and odd elements
-    are end indexes</doc>
+          <doc xml:space="preserve">array of byte indexes into the layout, where even
+  members of array are start indexes and odd elements are end indexes</doc>
           <array zero-terminated="0" c:type="const int*">
             <type name="gint" c:type="int"/>
           </array>
@@ -18546,7 +18553,7 @@ This function will create an RGB pixbuf with 8 bits per channel.
 The pixbuf will contain an alpha channel if the @surface contains one.</doc>
       <return-value transfer-ownership="full" nullable="1">
         <doc xml:space="preserve">A newly-created pixbuf with a
-    reference count of 1, or %NULL on error</doc>
+  reference count of 1</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>
@@ -18579,8 +18586,7 @@ This should generally not be used in newly written code as later
 stages will almost certainly convert the pixbuf back into a texture
 to draw it on screen.</doc>
       <return-value transfer-ownership="full" nullable="1">
-        <doc xml:space="preserve">a new #GdkPixbuf or %NULL
-  in case of an error</doc>
+        <doc xml:space="preserve">a new `GdkPixbuf`</doc>
         <type name="GdkPixbuf.Pixbuf" c:type="GdkPixbuf*"/>
       </return-value>
       <parameters>

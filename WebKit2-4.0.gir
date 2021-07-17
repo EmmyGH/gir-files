@@ -4723,6 +4723,18 @@ is present in #WebKitHitTestResult:context</doc>
         </parameter>
       </parameters>
     </function-macro>
+    <function-macro name="IS_MEDIA_KEY_SYSTEM_PERMISSION_REQUEST" c:identifier="WEBKIT_IS_MEDIA_KEY_SYSTEM_PERMISSION_REQUEST" introspectable="0">
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_MEDIA_KEY_SYSTEM_PERMISSION_REQUEST_CLASS" c:identifier="WEBKIT_IS_MEDIA_KEY_SYSTEM_PERMISSION_REQUEST_CLASS" introspectable="0">
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
     <function-macro name="IS_NAVIGATION_POLICY_DECISION" c:identifier="WEBKIT_IS_NAVIGATION_POLICY_DECISION" introspectable="0">
       <parameters>
         <parameter name="obj">
@@ -6269,20 +6281,81 @@ application compile time, rather than from the library linked
 against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MICRO_VERSION" value="3" c:type="WEBKIT_MICRO_VERSION">
+    <function-macro name="MEDIA_KEY_SYSTEM_PERMISSION_REQUEST" c:identifier="WEBKIT_MEDIA_KEY_SYSTEM_PERMISSION_REQUEST" introspectable="0">
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MEDIA_KEY_SYSTEM_PERMISSION_REQUEST_CLASS" c:identifier="WEBKIT_MEDIA_KEY_SYSTEM_PERMISSION_REQUEST_CLASS" introspectable="0">
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="MEDIA_KEY_SYSTEM_PERMISSION_REQUEST_GET_CLASS" c:identifier="WEBKIT_MEDIA_KEY_SYSTEM_PERMISSION_REQUEST_GET_CLASS" introspectable="0">
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <constant name="MICRO_VERSION" value="0" c:type="WEBKIT_MICRO_VERSION">
       <doc xml:space="preserve">Like webkit_get_micro_version(), but from the headers used at
 application compile time, rather than from the library linked
 against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
-    <constant name="MINOR_VERSION" value="30" c:type="WEBKIT_MINOR_VERSION">
+    <constant name="MINOR_VERSION" value="32" c:type="WEBKIT_MINOR_VERSION">
       <doc xml:space="preserve">Like webkit_get_minor_version(), but from the headers used at
 application compile time, rather than from the library linked
 against at application run time.</doc>
       <type name="gint" c:type="gint"/>
     </constant>
+    <class name="MediaKeySystemPermissionRequest" c:symbol-prefix="media_key_system_permission_request" c:type="WebKitMediaKeySystemPermissionRequest" parent="GObject.Object" glib:type-name="WebKitMediaKeySystemPermissionRequest" glib:get-type="webkit_media_key_system_permission_request_get_type" glib:type-struct="MediaKeySystemPermissionRequestClass">
+      <implements name="PermissionRequest"/>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="MediaKeySystemPermissionRequestPrivate" c:type="WebKitMediaKeySystemPermissionRequestPrivate*"/>
+      </field>
+    </class>
+    <record name="MediaKeySystemPermissionRequestClass" c:type="WebKitMediaKeySystemPermissionRequestClass" glib:is-gtype-struct-for="MediaKeySystemPermissionRequest">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_webkit_reserved0" introspectable="0">
+        <callback name="_webkit_reserved0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_webkit_reserved1" introspectable="0">
+        <callback name="_webkit_reserved1">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_webkit_reserved2" introspectable="0">
+        <callback name="_webkit_reserved2">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+      <field name="_webkit_reserved3" introspectable="0">
+        <callback name="_webkit_reserved3">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+        </callback>
+      </field>
+    </record>
+    <record name="MediaKeySystemPermissionRequestPrivate" c:type="WebKitMediaKeySystemPermissionRequestPrivate" disguised="1"/>
     <record name="MimeInfo" c:type="WebKitMimeInfo" glib:type-name="WebKitMimeInfo" glib:get-type="webkit_mime_info_get_type" c:symbol-prefix="mime_info">
-      <method name="get_description" c:identifier="webkit_mime_info_get_description">
+      <method name="get_description" c:identifier="webkit_mime_info_get_description" deprecated="1" deprecated-version="2.32">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the description of the MIME type of @info</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -6294,7 +6367,7 @@ against at application run time.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_extensions" c:identifier="webkit_mime_info_get_extensions">
+      <method name="get_extensions" c:identifier="webkit_mime_info_get_extensions" deprecated="1" deprecated-version="2.32">
         <doc xml:space="preserve">Get the list of file extensions associated to the
 MIME type of @info</doc>
         <return-value transfer-ownership="none">
@@ -6311,7 +6384,7 @@ MIME type of @info</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_mime_type" c:identifier="webkit_mime_info_get_mime_type">
+      <method name="get_mime_type" c:identifier="webkit_mime_info_get_mime_type" deprecated="1" deprecated-version="2.32">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the MIME type of @info</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -6323,7 +6396,7 @@ MIME type of @info</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="ref" c:identifier="webkit_mime_info_ref">
+      <method name="ref" c:identifier="webkit_mime_info_ref" deprecated="1" deprecated-version="2.32">
         <doc xml:space="preserve">Atomically increments the reference count of @info by one. This
 function is MT-safe and may be called from any thread.</doc>
         <return-value transfer-ownership="full">
@@ -6337,7 +6410,7 @@ function is MT-safe and may be called from any thread.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="unref" c:identifier="webkit_mime_info_unref">
+      <method name="unref" c:identifier="webkit_mime_info_unref" deprecated="1" deprecated-version="2.32">
         <doc xml:space="preserve">Atomically decrements the reference count of @info by one. If the
 reference count drops to 0, all memory allocated by the #WebKitMimeInfo is
 released. This function is MT-safe and may be called from any
@@ -7459,7 +7532,7 @@ element is detached from the current page.</doc>
       </field>
     </record>
     <class name="Plugin" c:symbol-prefix="plugin" c:type="WebKitPlugin" parent="GObject.Object" glib:type-name="WebKitPlugin" glib:get-type="webkit_plugin_get_type" glib:type-struct="PluginClass">
-      <method name="get_description" c:identifier="webkit_plugin_get_description">
+      <method name="get_description" c:identifier="webkit_plugin_get_description" deprecated="1" deprecated-version="2.32">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the description of the plugin.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -7471,7 +7544,7 @@ element is detached from the current page.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_mime_info_list" c:identifier="webkit_plugin_get_mime_info_list">
+      <method name="get_mime_info_list" c:identifier="webkit_plugin_get_mime_info_list" deprecated="1" deprecated-version="2.32">
         <doc xml:space="preserve">Get information about MIME types handled by the plugin,
 as a list of #WebKitMimeInfo.</doc>
         <return-value transfer-ownership="none">
@@ -7487,7 +7560,7 @@ as a list of #WebKitMimeInfo.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_name" c:identifier="webkit_plugin_get_name">
+      <method name="get_name" c:identifier="webkit_plugin_get_name" deprecated="1" deprecated-version="2.32">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the name of the plugin.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -7499,7 +7572,7 @@ as a list of #WebKitMimeInfo.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_path" c:identifier="webkit_plugin_get_path">
+      <method name="get_path" c:identifier="webkit_plugin_get_path" deprecated="1" deprecated-version="2.32">
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">the absolute path where the plugin is installed.</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -7552,24 +7625,24 @@ as a list of #WebKitMimeInfo.</doc>
       </field>
     </record>
     <enumeration name="PluginError" glib:type-name="WebKitPluginError" glib:get-type="webkit_plugin_error_get_type" c:type="WebKitPluginError" glib:error-domain="WebKitPluginError">
-      <doc xml:space="preserve">Enum values used to denote the various plugin errors.</doc>
+      <doc xml:space="preserve">Enum values used to denote the various plugin and multimedia errors.</doc>
       <member name="failed" value="299" c:identifier="WEBKIT_PLUGIN_ERROR_FAILED" glib:nick="failed">
-        <doc xml:space="preserve">Generic plugin load failure</doc>
+        <doc xml:space="preserve">Generic plugin load failure. Deprecated 2.32</doc>
       </member>
       <member name="cannot_find_plugin" value="200" c:identifier="WEBKIT_PLUGIN_ERROR_CANNOT_FIND_PLUGIN" glib:nick="cannot-find-plugin">
-        <doc xml:space="preserve">Load failure due to missing plugin</doc>
+        <doc xml:space="preserve">Load failure due to missing plugin. Deprecated 2.32</doc>
       </member>
       <member name="cannot_load_plugin" value="201" c:identifier="WEBKIT_PLUGIN_ERROR_CANNOT_LOAD_PLUGIN" glib:nick="cannot-load-plugin">
-        <doc xml:space="preserve">Load failure due to inability to load plugin</doc>
+        <doc xml:space="preserve">Load failure due to inability to load plugin. Deprecated 2.32</doc>
       </member>
       <member name="java_unavailable" value="202" c:identifier="WEBKIT_PLUGIN_ERROR_JAVA_UNAVAILABLE" glib:nick="java-unavailable">
-        <doc xml:space="preserve">Load failure due to missing Java support that is required to load plugin</doc>
+        <doc xml:space="preserve">Load failure due to missing Java support that is required to load plugin. Deprecated 2.32</doc>
       </member>
       <member name="connection_cancelled" value="203" c:identifier="WEBKIT_PLUGIN_ERROR_CONNECTION_CANCELLED" glib:nick="connection-cancelled">
-        <doc xml:space="preserve">Load failure due to connection cancellation</doc>
+        <doc xml:space="preserve">Load failure due to connection cancellation. Deprecated 2.32</doc>
       </member>
       <member name="will_handle_load" value="204" c:identifier="WEBKIT_PLUGIN_ERROR_WILL_HANDLE_LOAD" glib:nick="will-handle-load">
-        <doc xml:space="preserve">Load failure since plugin handles the load</doc>
+        <doc xml:space="preserve">Preliminary load failure for media content types. A new load will be started to perform the media load.</doc>
       </member>
       <function name="quark" c:identifier="webkit_plugin_error_quark">
         <return-value transfer-ownership="none">
@@ -8825,8 +8898,8 @@ port.</doc>
         </parameters>
       </constructor>
       <method name="get_host" c:identifier="webkit_security_origin_get_host" version="2.16">
-        <doc xml:space="preserve">Gets the hostname of @origin, or %NULL if @origin is opaque or if its
-protocol does not require a host component.</doc>
+        <doc xml:space="preserve">Gets the hostname of @origin. It is reasonable for this to be %NULL
+if its protocol does not require a host component.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">The host of the #WebKitSecurityOrigin</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -8843,8 +8916,7 @@ protocol does not require a host component.</doc>
 port is the default port for the given protocol. For example,
 http://example.com has the same security origin as
 http://example.com:80, and this function will return 0 for a
-#WebKitSecurityOrigin constructed from either URI. It will also
-return 0 if @origin is opaque.</doc>
+#WebKitSecurityOrigin constructed from either URI.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">The port of the #WebKitSecurityOrigin.</doc>
           <type name="guint16" c:type="guint16"/>
@@ -8857,7 +8929,7 @@ return 0 if @origin is opaque.</doc>
         </parameters>
       </method>
       <method name="get_protocol" c:identifier="webkit_security_origin_get_protocol" version="2.16">
-        <doc xml:space="preserve">Gets the protocol of @origin, or %NULL if @origin is opaque.</doc>
+        <doc xml:space="preserve">Gets the protocol of @origin.</doc>
         <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">The protocol of the #WebKitSecurityOrigin</doc>
           <type name="utf8" c:type="const gchar*"/>
@@ -8869,11 +8941,12 @@ return 0 if @origin is opaque.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="is_opaque" c:identifier="webkit_security_origin_is_opaque" version="2.16">
-        <doc xml:space="preserve">Gets whether @origin is an opaque security origin, which does not
-possess an associated protocol, host, or port.</doc>
+      <method name="is_opaque" c:identifier="webkit_security_origin_is_opaque" version="2.16" deprecated="1" deprecated-version="2.32">
+        <doc xml:space="preserve">This function returns %FALSE. #WebKitSecurityOrigin is now a simple
+wrapper around a &amp;lt;protocol, host, port&amp;gt; triplet, and no longer
+represents an origin as defined by web standards that may be opaque.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if @origin is opaque.</doc>
+          <doc xml:space="preserve">%FALSE</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -8899,8 +8972,8 @@ This function is MT-safe and may be called from any thread.</doc>
       </method>
       <method name="to_string" c:identifier="webkit_security_origin_to_string" version="2.16">
         <doc xml:space="preserve">Gets a string representation of @origin. The string representation
-is a valid URI with only protocol, host, and port components. It may
-be %NULL, but usually only if @origin is opaque.</doc>
+is a valid URI with only protocol, host, and port components, or
+%NULL.</doc>
         <return-value transfer-ownership="full" nullable="1">
           <doc xml:space="preserve">a URI representing @origin.</doc>
           <type name="utf8" c:type="gchar*"/>
@@ -9130,7 +9203,7 @@ otherwise.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_enable_accelerated_2d_canvas" c:identifier="webkit_settings_get_enable_accelerated_2d_canvas" version="2.2">
+      <method name="get_enable_accelerated_2d_canvas" c:identifier="webkit_settings_get_enable_accelerated_2d_canvas" version="2.2" deprecated="1" deprecated-version="2.32.">
         <doc xml:space="preserve">Get the #WebKitSettings:enable-accelerated-2d-canvas property.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE if accelerated 2D canvas is enabled or %FALSE otherwise.</doc>
@@ -9403,7 +9476,7 @@ otherwise.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_enable_plugins" c:identifier="webkit_settings_get_enable_plugins">
+      <method name="get_enable_plugins" c:identifier="webkit_settings_get_enable_plugins" deprecated="1" deprecated-version="2.32">
         <doc xml:space="preserve">Get the #WebKitSettings:enable-plugins property.</doc>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">%TRUE If plugins are enabled or %FALSE otherwise.</doc>
@@ -9935,7 +10008,7 @@ otherwise.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_enable_accelerated_2d_canvas" c:identifier="webkit_settings_set_enable_accelerated_2d_canvas" version="2.2">
+      <method name="set_enable_accelerated_2d_canvas" c:identifier="webkit_settings_set_enable_accelerated_2d_canvas" version="2.2" deprecated="1" deprecated-version="2.32.">
         <doc xml:space="preserve">Set the #WebKitSettings:enable-accelerated-2d-canvas property.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10271,7 +10344,7 @@ otherwise.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_enable_plugins" c:identifier="webkit_settings_set_enable_plugins">
+      <method name="set_enable_plugins" c:identifier="webkit_settings_set_enable_plugins" deprecated="1" deprecated-version="2.32">
         <doc xml:space="preserve">Set the #WebKitSettings:enable-plugins property.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -10793,7 +10866,7 @@ with accelerated compositing. This is useful for debugging issues related
 to web content that is composited with the GPU.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="enable-accelerated-2d-canvas" version="2.2" writable="1" construct="1" transfer-ownership="none">
+      <property name="enable-accelerated-2d-canvas" version="2.2" deprecated="1" deprecated-version="2.32." writable="1" construct="1" transfer-ownership="none">
         <doc xml:space="preserve">Enable or disable accelerated 2D canvas. Accelerated 2D canvas is only available
 if WebKit was compiled with a version of Cairo including the unstable CairoGL API.
 When accelerated 2D canvas is enabled, WebKit may render some 2D canvas content
@@ -10932,7 +11005,7 @@ of caches and their purposes see:
 http://webkit.org/blog/427/webkit-page-cache-i-the-basics/</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
-      <property name="enable-plugins" writable="1" construct="1" transfer-ownership="none">
+      <property name="enable-plugins" deprecated="1" deprecated-version="2.32" writable="1" construct="1" transfer-ownership="none">
         <doc xml:space="preserve">Determines whether or not plugins on the page are enabled.</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -12267,7 +12340,9 @@ name has been already registered before.</doc>
         </parameters>
       </method>
       <method name="remove_all_scripts" c:identifier="webkit_user_content_manager_remove_all_scripts" version="2.6">
-        <doc xml:space="preserve">Removes all user scripts from the given #WebKitUserContentManager</doc>
+        <doc xml:space="preserve">Removes all user scripts from the given #WebKitUserContentManager
+
+See also webkit_user_content_manager_remove_script().</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -12323,6 +12398,42 @@ webkit_user_content_filter_get_identifier().</doc>
           <parameter name="filter_id" transfer-ownership="none">
             <doc xml:space="preserve">Filter identifier</doc>
             <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_script" c:identifier="webkit_user_content_manager_remove_script" version="2.32">
+        <doc xml:space="preserve">Removes a #WebKitUserScript from the given #WebKitUserContentManager.
+
+See also webkit_user_content_manager_remove_all_scripts().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">A #WebKitUserContentManager</doc>
+            <type name="UserContentManager" c:type="WebKitUserContentManager*"/>
+          </instance-parameter>
+          <parameter name="script" transfer-ownership="none">
+            <doc xml:space="preserve">A #WebKitUserScript</doc>
+            <type name="UserScript" c:type="WebKitUserScript*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_style_sheet" c:identifier="webkit_user_content_manager_remove_style_sheet" version="2.32">
+        <doc xml:space="preserve">Removes a #WebKitUserStyleSheet from the given #WebKitUserContentManager.
+
+See also webkit_user_content_manager_remove_all_style_sheets().</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">A #WebKitUserContentManager</doc>
+            <type name="UserContentManager" c:type="WebKitUserContentManager*"/>
+          </instance-parameter>
+          <parameter name="stylesheet" transfer-ownership="none">
+            <doc xml:space="preserve">A #WebKitUserStyleSheet</doc>
+            <type name="UserStyleSheet" c:type="WebKitUserStyleSheet*"/>
           </parameter>
         </parameters>
       </method>
@@ -12522,7 +12633,7 @@ webkit_user_content_manager_register_script_message_handler()</doc>
       </constructor>
       <method name="get_fd_list" c:identifier="webkit_user_message_get_fd_list" version="2.28">
         <doc xml:space="preserve">Get the @message list of file descritpor</doc>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">the message list of file descriptors</doc>
           <type name="Gio.UnixFDList" c:type="GUnixFDList*"/>
         </return-value>
@@ -12548,7 +12659,7 @@ webkit_user_content_manager_register_script_message_handler()</doc>
       </method>
       <method name="get_parameters" c:identifier="webkit_user_message_get_parameters" version="2.28">
         <doc xml:space="preserve">Get the @message parameters</doc>
-        <return-value transfer-ownership="none">
+        <return-value transfer-ownership="none" nullable="1">
           <doc xml:space="preserve">the message parameters</doc>
           <type name="GLib.Variant" c:type="GVariant*"/>
         </return-value>
@@ -13302,7 +13413,7 @@ database associated with @context, or %NULL.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_plugins" c:identifier="webkit_web_context_get_plugins">
+      <method name="get_plugins" c:identifier="webkit_web_context_get_plugins" deprecated="1" deprecated-version="2.32">
         <doc xml:space="preserve">Asynchronously get the list of installed plugins.
 
 When the operation is finished, @callback will be called. You can then call
@@ -13329,7 +13440,7 @@ webkit_web_context_get_plugins_finish() to get the result of the operation.</doc
           </parameter>
         </parameters>
       </method>
-      <method name="get_plugins_finish" c:identifier="webkit_web_context_get_plugins_finish" throws="1">
+      <method name="get_plugins_finish" c:identifier="webkit_web_context_get_plugins_finish" deprecated="1" deprecated-version="2.32" throws="1">
         <doc xml:space="preserve">Finish an asynchronous operation started with webkit_web_context_get_plugins.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve">a #GList of #WebKitPlugin. You must free the #GList with
@@ -13422,8 +13533,9 @@ details on the format of the languages in the list.</doc>
           </instance-parameter>
         </parameters>
       </method>
-      <method name="get_tls_errors_policy" c:identifier="webkit_web_context_get_tls_errors_policy">
+      <method name="get_tls_errors_policy" c:identifier="webkit_web_context_get_tls_errors_policy" deprecated="1" deprecated-version="2.32.">
         <doc xml:space="preserve">Get the TLS errors policy of @context</doc>
+        <doc-deprecated xml:space="preserve">Use webkit_website_data_manager_get_tls_errors_policy() instead.</doc-deprecated>
         <return-value transfer-ownership="none">
           <doc xml:space="preserve">a #WebKitTLSErrorsPolicy</doc>
           <type name="TLSErrorsPolicy" c:type="WebKitTLSErrorsPolicy"/>
@@ -13577,9 +13689,7 @@ about_uri_scheme_request_cb (WebKitURISchemeRequest *request,
     const gchar  *path;
 
     path = webkit_uri_scheme_request_get_path (request);
-    if (!g_strcmp0 (path, "plugins")) {
-        /&lt;!-- --&gt;* Create a GInputStream with the contents of plugins about page, and set its length to stream_length *&lt;!-- --&gt;/
-    } else if (!g_strcmp0 (path, "memory")) {
+    if (!g_strcmp0 (path, "memory")) {
         /&lt;!-- --&gt;* Create a GInputStream with the contents of memory about page, and set its length to stream_length *&lt;!-- --&gt;/
     } else if (!g_strcmp0 (path, "applications")) {
         /&lt;!-- --&gt;* Create a GInputStream with the contents of applications about page, and set its length to stream_length *&lt;!-- --&gt;/
@@ -13644,7 +13754,7 @@ If @message is floating, it's consumed.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_additional_plugins_directory" c:identifier="webkit_web_context_set_additional_plugins_directory">
+      <method name="set_additional_plugins_directory" c:identifier="webkit_web_context_set_additional_plugins_directory" deprecated="1" deprecated-version="2.32">
         <doc xml:space="preserve">Set an additional directory where WebKit will look for plugins.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
@@ -13763,7 +13873,7 @@ directory or %NULL to use the defaults</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_network_proxy_settings" c:identifier="webkit_web_context_set_network_proxy_settings" version="2.16">
+      <method name="set_network_proxy_settings" c:identifier="webkit_web_context_set_network_proxy_settings" version="2.16" deprecated="1" deprecated-version="2.32.">
         <doc xml:space="preserve">Set the network proxy settings to be used by connections started in @context.
 By default %WEBKIT_NETWORK_PROXY_MODE_DEFAULT is used, which means that the
 system settings will be used (g_proxy_resolver_get_default()).
@@ -13772,6 +13882,7 @@ If you want to override the system default settings, you can either use
 or %WEBKIT_NETWORK_PROXY_MODE_CUSTOM to provide your own proxy settings.
 When @proxy_mode is %WEBKIT_NETWORK_PROXY_MODE_CUSTOM @proxy_settings must be
 a valid #WebKitNetworkProxySettings; otherwise, @proxy_settings must be %NULL.</doc>
+        <doc-deprecated xml:space="preserve">Use webkit_website_data_manager_set_network_proxy_settings() instead.</doc-deprecated>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -13908,8 +14019,9 @@ in WebKit.</doc>
           </parameter>
         </parameters>
       </method>
-      <method name="set_tls_errors_policy" c:identifier="webkit_web_context_set_tls_errors_policy">
+      <method name="set_tls_errors_policy" c:identifier="webkit_web_context_set_tls_errors_policy" deprecated="1" deprecated-version="2.32.">
         <doc xml:space="preserve">Set the TLS errors policy of @context as @policy</doc>
+        <doc-deprecated xml:space="preserve">Use webkit_website_data_manager_set_tls_errors_policy() instead.</doc-deprecated>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -14679,6 +14791,17 @@ the required plugins were not available.
 When a WebKitInstallMissingMediaPluginsPermissionRequest is not handled by the user,
 it is allowed by default.</doc>
     </docsection>
+    <docsection name="WebKitMediaKeySystemPermissionRequest">
+      <doc xml:space="preserve">WebKitMediaKeySystemPermissionRequest represents a request for permission to decide whether
+WebKit should use the given CDM to access protected media when requested through the
+MediaKeySystem API.
+
+When a WebKitMediaKeySystemPermissionRequest is not handled by the user,
+it is denied by default.
+
+When handling this permission request the application may perform additional installation of the
+requested CDM, unless it is already present on the host system.</doc>
+    </docsection>
     <docsection name="WebKitNavigationPolicyDecision">
       <doc xml:space="preserve">WebKitNavigationPolicyDecision represents a policy decision for events associated with
 navigations. If the value of #WebKitNavigationPolicyDecision:mouse-button is not 0, then
@@ -14774,13 +14897,13 @@ has it.</doc>
     </docsection>
     <docsection name="WebKitSecurityOrigin">
       <doc xml:space="preserve">#WebKitSecurityOrigin is a representation of a security domain
-defined by websites. A security origin normally consists of a
-protocol, a hostname, and a port number. It is also possible for a
-security origin to be opaque, as defined by the HTML standard, in
-which case it has no associated protocol, host, or port.
+defined by websites. A security origin consists of a protocol, a
+hostname, and an optional port number.
 
-Websites with the same security origin can access each other's
-resources for client-side scripting or database access.</doc>
+Resources with the same security origin can generally access each
+other for client-side scripting or database access. When comparing
+origins, beware that if both protocol and host are %NULL, the origins
+should not be treated as equal.</doc>
     </docsection>
     <docsection name="WebKitSettings">
       <doc xml:space="preserve">#WebKitSettings can be applied to a #WebKitWebView to control text charset,
@@ -17268,9 +17391,14 @@ signal request.</doc>
         <doc xml:space="preserve">Whether the #WebKitWebView is ephemeral. An ephemeral web view never writes
 website data to the client storage, no matter what #WebKitWebsiteDataManager
 its context is using. This is normally used to implement private browsing mode.
-This is a %G_PARAM_CONSTRUCT_ONLY property, so you have to create a ephemeral
-#WebKitWebView and it can't be changed. Note that all #WebKitWebView&lt;!-- --&gt;s
-created with an ephemeral #WebKitWebContext will be ephemeral automatically.
+This is a %G_PARAM_CONSTRUCT_ONLY property, so you have to create an ephemeral
+#WebKitWebView and it can't be changed. The ephemeral #WebKitWebsiteDataManager
+created for the #WebKitWebView will inherit the network settings from the
+#WebKitWebContext&lt;!-- --&gt;'s #WebKitWebsiteDataManager. To use different settings
+you can get the #WebKitWebsiteDataManager with webkit_web_view_get_website_data_manager()
+and set the new ones.
+Note that all #WebKitWebView&lt;!-- --&gt;s created with an ephemeral #WebKitWebContext
+will be ephemeral automatically.
 See also webkit_web_context_new_ephemeral().</doc>
         <type name="gboolean" c:type="gboolean"/>
       </property>
@@ -19072,6 +19200,19 @@ See also webkit_website_data_manager_set_persistent_credential_storage_enabled()
           </instance-parameter>
         </parameters>
       </method>
+      <method name="get_tls_errors_policy" c:identifier="webkit_website_data_manager_get_tls_errors_policy" version="2.32">
+        <doc xml:space="preserve">Get the TLS errors policy of @manager</doc>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve">a #WebKitTLSErrorsPolicy</doc>
+          <type name="TLSErrorsPolicy" c:type="WebKitTLSErrorsPolicy"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #WebKitWebsiteDataManager</doc>
+            <type name="WebsiteDataManager" c:type="WebKitWebsiteDataManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
       <method name="get_websql_directory" c:identifier="webkit_website_data_manager_get_websql_directory" version="2.10" deprecated="1" deprecated-version="2.24.">
         <doc xml:space="preserve">Get the #WebKitWebsiteDataManager:websql-directory property.</doc>
         <doc-deprecated xml:space="preserve">WebSQL is no longer supported. Use IndexedDB instead.</doc-deprecated>
@@ -19173,6 +19314,33 @@ Note that while ITP is enabled the accept policy %WEBKIT_COOKIE_POLICY_ACCEPT_NO
           </parameter>
         </parameters>
       </method>
+      <method name="set_network_proxy_settings" c:identifier="webkit_website_data_manager_set_network_proxy_settings" version="2.32">
+        <doc xml:space="preserve">Set the network proxy settings to be used by connections started in @manager session.
+By default %WEBKIT_NETWORK_PROXY_MODE_DEFAULT is used, which means that the
+system settings will be used (g_proxy_resolver_get_default()).
+If you want to override the system default settings, you can either use
+%WEBKIT_NETWORK_PROXY_MODE_NO_PROXY to make sure no proxies are used at all,
+or %WEBKIT_NETWORK_PROXY_MODE_CUSTOM to provide your own proxy settings.
+When @proxy_mode is %WEBKIT_NETWORK_PROXY_MODE_CUSTOM @proxy_settings must be
+a valid #WebKitNetworkProxySettings; otherwise, @proxy_settings must be %NULL.</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #WebKitWebsiteDataManager</doc>
+            <type name="WebsiteDataManager" c:type="WebKitWebsiteDataManager*"/>
+          </instance-parameter>
+          <parameter name="proxy_mode" transfer-ownership="none">
+            <doc xml:space="preserve">a #WebKitNetworkProxyMode</doc>
+            <type name="NetworkProxyMode" c:type="WebKitNetworkProxyMode"/>
+          </parameter>
+          <parameter name="proxy_settings" transfer-ownership="none" nullable="1" allow-none="1">
+            <doc xml:space="preserve">a #WebKitNetworkProxySettings, or %NULL</doc>
+            <type name="NetworkProxySettings" c:type="WebKitNetworkProxySettings*"/>
+          </parameter>
+        </parameters>
+      </method>
       <method name="set_persistent_credential_storage_enabled" c:identifier="webkit_website_data_manager_set_persistent_credential_storage_enabled" version="2.30">
         <doc xml:space="preserve">Enable or disable persistent credential storage. When enabled, which is the default for
 non-ephemeral sessions, the network process will try to read and write HTTP authentiacation
@@ -19188,6 +19356,22 @@ credentials from persistent storage.</doc>
           <parameter name="enabled" transfer-ownership="none">
             <doc xml:space="preserve">value to set</doc>
             <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_tls_errors_policy" c:identifier="webkit_website_data_manager_set_tls_errors_policy" version="2.32">
+        <doc xml:space="preserve">Set the TLS errors policy of @manager as @policy</doc>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve">a #WebKitWebsiteDataManager</doc>
+            <type name="WebsiteDataManager" c:type="WebKitWebsiteDataManager*"/>
+          </instance-parameter>
+          <parameter name="policy" transfer-ownership="none">
+            <doc xml:space="preserve">a #WebKitTLSErrorsPolicy</doc>
+            <type name="TLSErrorsPolicy" c:type="WebKitTLSErrorsPolicy"/>
           </parameter>
         </parameters>
       </method>
@@ -19310,7 +19494,7 @@ parameters to configure data directories will be ignored.</doc>
         <doc xml:space="preserve">IndexedDB databases.</doc>
       </member>
       <member name="plugin_data" value="128" c:identifier="WEBKIT_WEBSITE_DATA_PLUGIN_DATA" glib:nick="plugin-data">
-        <doc xml:space="preserve">Plugins data.</doc>
+        <doc xml:space="preserve">Plugins data. Deprecated 2.32</doc>
       </member>
       <member name="cookies" value="256" c:identifier="WEBKIT_WEBSITE_DATA_COOKIES" glib:nick="cookies">
         <doc xml:space="preserve">Cookies.</doc>
@@ -19658,6 +19842,19 @@ have included when compiling your code.</doc>
       <return-value transfer-ownership="none">
         <type name="GLib.Quark" c:type="GQuark"/>
       </return-value>
+    </function>
+    <function name="media_key_system_permission_get_name" c:identifier="webkit_media_key_system_permission_get_name" version="2.32">
+      <doc xml:space="preserve">Get the key system for which access permission is being requested.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve">the key system name for @request</doc>
+        <type name="utf8" c:type="const gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="request" transfer-ownership="none">
+          <doc xml:space="preserve">a #WebKitMediaKeySystemPermissionRequest</doc>
+          <type name="MediaKeySystemPermissionRequest" c:type="WebKitMediaKeySystemPermissionRequest*"/>
+        </parameter>
+      </parameters>
     </function>
     <function name="network_error_quark" c:identifier="webkit_network_error_quark" moved-to="NetworkError.quark">
       <return-value transfer-ownership="none">

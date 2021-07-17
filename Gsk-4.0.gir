@@ -32,7 +32,7 @@ and/or use gtk-doc annotations.  -->
 The implementation of each blend mode is deferred to the
 rendering pipeline.
 
-See https://www.w3.org/TR/compositing-1/#blending for more information
+See &lt;https://www.w3.org/TR/compositing-1/#blending&gt; for more information
 on blending and blend modes.</doc>
       <member name="default" value="0" c:identifier="GSK_BLEND_MODE_DEFAULT" glib:nick="default">
         <doc xml:space="preserve">The default blend mode, which specifies no blending</doc>
@@ -209,7 +209,7 @@ The 4 sides of the border can have different widths and colors.</doc>
         </return-value>
         <parameters>
           <parameter name="outline" transfer-ownership="none">
-            <doc xml:space="preserve">a #GskRoundedRect describing the outline of the border</doc>
+            <doc xml:space="preserve">a `GskRoundedRect` describing the outline of the border</doc>
             <type name="RoundedRect" c:type="const GskRoundedRect*"/>
           </parameter>
           <parameter name="border_width" transfer-ownership="none">
@@ -231,7 +231,7 @@ The 4 sides of the border can have different widths and colors.</doc>
       <method name="get_colors" c:identifier="gsk_border_node_get_colors">
         <doc xml:space="preserve">Retrieves the colors of the border.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">an array of 4 #GdkRGBA structs
+          <doc xml:space="preserve">an array of 4 `GdkRGBA` structs
     for the top, right, bottom and left color of the border</doc>
           <type name="Gdk.RGBA" c:type="const GdkRGBA*"/>
         </return-value>
@@ -420,7 +420,7 @@ given by @clip.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="node" transfer-ownership="none">
-            <doc xml:space="preserve">a #GskClipNode</doc>
+            <doc xml:space="preserve">a `GskClipNode`</doc>
             <type name="ClipNode" c:type="const GskRenderNode*"/>
           </instance-parameter>
         </parameters>
@@ -713,7 +713,7 @@ The new node will acquire a reference to each of the children.</doc>
       </method>
     </class>
     <enumeration name="Corner" glib:type-name="GskCorner" glib:get-type="gsk_corner_get_type" c:type="GskCorner">
-      <doc xml:space="preserve">The corner indices used by #GskRoundedRect.</doc>
+      <doc xml:space="preserve">The corner indices used by `GskRoundedRect`.</doc>
       <member name="top_left" value="0" c:identifier="GSK_CORNER_TOP_LEFT" glib:nick="top-left">
         <doc xml:space="preserve">The top left corner</doc>
       </member>
@@ -844,8 +844,7 @@ Adding this node has no visual effect.</doc>
     <class name="GLRenderer" c:symbol-prefix="gl_renderer" c:type="GskGLRenderer" parent="Renderer" glib:type-name="GskGLRenderer" glib:get-type="gsk_gl_renderer_get_type" glib:type-struct="GLRendererClass">
       <doc xml:space="preserve">A GSK renderer that is using OpenGL.</doc>
       <constructor name="new" c:identifier="gsk_gl_renderer_new">
-        <doc xml:space="preserve">Creates a new #GskRenderer using OpenGL. This is the default renderer
-used by GTK.</doc>
+        <doc xml:space="preserve">Creates a new `GskRenderer` using OpenGL.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve">a new GL renderer</doc>
           <type name="Renderer" c:type="GskRenderer*"/>
@@ -1313,9 +1312,8 @@ u_textureN value that the shader defines.</doc>
         <attribute name="org.gtk.Method.get_property" value="resource"/>
         <doc xml:space="preserve">Gets the resource path for the GLSL sourcecode being used
 to render this shader.</doc>
-        <return-value transfer-ownership="none">
-          <doc xml:space="preserve">The resource path for the shader,
-    or %NULL if none.</doc>
+        <return-value transfer-ownership="none" nullable="1">
+          <doc xml:space="preserve">The resource path for the shader</doc>
           <type name="utf8" c:type="const char*"/>
         </return-value>
         <parameters>
@@ -1433,7 +1431,7 @@ renderer before using it.</doc>
         </return-value>
         <parameters>
           <parameter name="shader" transfer-ownership="none">
-            <doc xml:space="preserve">the #GskGLShader</doc>
+            <doc xml:space="preserve">the `GskGLShader`</doc>
             <type name="GLShader" c:type="GskGLShader*"/>
           </parameter>
           <parameter name="bounds" transfer-ownership="none">
@@ -1461,7 +1459,7 @@ renderer before using it.</doc>
       <method name="get_args" c:identifier="gsk_gl_shader_node_get_args">
         <doc xml:space="preserve">Gets args for the node.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">A #GBytes with the uniform arguments</doc>
+          <doc xml:space="preserve">A `GBytes` with the uniform arguments</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
@@ -1504,7 +1502,7 @@ renderer before using it.</doc>
       <method name="get_shader" c:identifier="gsk_gl_shader_node_get_shader">
         <doc xml:space="preserve">Gets shader code for the node.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">the #GskGLShader shader</doc>
+          <doc xml:space="preserve">the `GskGLShader` shader</doc>
           <type name="GLShader" c:type="GskGLShader*"/>
         </return-value>
         <parameters>
@@ -1867,7 +1865,7 @@ points and color stops, and render that into the area given by @bounds.</doc>
     </function-macro>
     <class name="NglRenderer" c:symbol-prefix="ngl_renderer" c:type="GskNglRenderer" parent="Renderer" glib:type-name="GskNglRenderer" glib:get-type="gsk_ngl_renderer_get_type" glib:type-struct="NglRendererClass">
       <constructor name="new" c:identifier="gsk_ngl_renderer_new" version="4.2">
-        <doc xml:space="preserve">Creates a new #GskRenderer using the new OpenGL renderer.</doc>
+        <doc xml:space="preserve">Creates a new `GskRenderer` using the new OpenGL renderer.</doc>
         <return-value transfer-ownership="full">
           <doc xml:space="preserve">a new NGL renderer</doc>
           <type name="Renderer" c:type="GskRenderer*"/>
@@ -2092,7 +2090,7 @@ during node deserialization.</doc>
       </parameters>
     </function-macro>
     <function-macro name="ROUNDED_RECT_INIT" c:identifier="GSK_ROUNDED_RECT_INIT" introspectable="0">
-      <doc xml:space="preserve">Initializes a #GskRoundedRect when declaring it.
+      <doc xml:space="preserve">Initializes a `GskRoundedRect` when declaring it.
 All corner sizes will be initialized to 0.</doc>
       <parameters>
         <parameter name="_x">
@@ -2278,8 +2276,7 @@ properties during construction.</doc>
 
 For a discussion of the supported format, see that function.</doc>
         <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve">a new `GskRenderNode` or %NULL on
-    error.</doc>
+          <doc xml:space="preserve">a new `GskRenderNode`</doc>
           <type name="RenderNode" c:type="GskRenderNode*"/>
         </return-value>
         <parameters>
@@ -2288,7 +2285,7 @@ For a discussion of the supported format, see that function.</doc>
             <type name="GLib.Bytes" c:type="GBytes*"/>
           </parameter>
           <parameter name="error_func" transfer-ownership="none" nullable="1" allow-none="1" scope="call" closure="2">
-            <doc xml:space="preserve">Callback on parsing errors or %NULL</doc>
+            <doc xml:space="preserve">Callback on parsing errors</doc>
             <type name="ParseErrorFunc" c:type="GskParseErrorFunc"/>
           </parameter>
           <parameter name="user_data" transfer-ownership="none" nullable="1" allow-none="1" closure="1">
@@ -2375,12 +2372,12 @@ that were created with previous versions of GTK.
 The intended use of this functions is testing, benchmarking and debugging.
 The format is not meant as a permanent storage format.</doc>
         <return-value transfer-ownership="full">
-          <doc xml:space="preserve">a #GBytes representing the node.</doc>
+          <doc xml:space="preserve">a `GBytes` representing the node.</doc>
           <type name="GLib.Bytes" c:type="GBytes*"/>
         </return-value>
         <parameters>
           <instance-parameter name="node" transfer-ownership="none">
-            <doc xml:space="preserve">a #GskRenderNode</doc>
+            <doc xml:space="preserve">a `GskRenderNode`</doc>
             <type name="RenderNode" c:type="GskRenderNode*"/>
           </instance-parameter>
         </parameters>
@@ -2433,7 +2430,7 @@ node to a file for later inspection.</doc>
         <doc xml:space="preserve">A node containing a stack of children</doc>
       </member>
       <member name="cairo_node" value="2" c:identifier="GSK_CAIRO_NODE" glib:nick="cairo-node">
-        <doc xml:space="preserve">A node drawing a #cairo_surface_t</doc>
+        <doc xml:space="preserve">A node drawing a `cairo_surface_t`</doc>
       </member>
       <member name="color_node" value="3" c:identifier="GSK_COLOR_NODE" glib:nick="color-node">
         <doc xml:space="preserve">A node drawing a single color rectangle</doc>
@@ -2457,7 +2454,7 @@ node to a file for later inspection.</doc>
         <doc xml:space="preserve">A node stroking a border around an area</doc>
       </member>
       <member name="texture_node" value="10" c:identifier="GSK_TEXTURE_NODE" glib:nick="texture-node">
-        <doc xml:space="preserve">A node drawing a #GdkTexture</doc>
+        <doc xml:space="preserve">A node drawing a `GdkTexture`</doc>
       </member>
       <member name="inset_shadow_node" value="11" c:identifier="GSK_INSET_SHADOW_NODE" glib:nick="inset-shadow-node">
         <doc xml:space="preserve">A node drawing an inset shadow</doc>
@@ -2608,7 +2605,7 @@ the rendering is in progress.</doc>
           </parameter>
           <parameter name="region" transfer-ownership="none" nullable="1" allow-none="1">
             <doc xml:space="preserve">the `cairo_region_t` that must be redrawn or %NULL
-    for the whole window</doc>
+  for the whole window</doc>
             <type name="cairo.Region" c:type="const cairo_region_t*"/>
           </parameter>
         </parameters>
@@ -3123,16 +3120,15 @@ rendering pipeline.</doc>
     <enumeration name="SerializationError" glib:type-name="GskSerializationError" glib:get-type="gsk_serialization_error_get_type" c:type="GskSerializationError" glib:error-domain="gsk-serialization-error-quark">
       <doc xml:space="preserve">Errors that can happen during (de)serialization.</doc>
       <member name="unsupported_format" value="0" c:identifier="GSK_SERIALIZATION_UNSUPPORTED_FORMAT" glib:nick="unsupported-format">
-        <doc xml:space="preserve">The format can not be
-    identified</doc>
+        <doc xml:space="preserve">The format can not be identified</doc>
       </member>
       <member name="unsupported_version" value="1" c:identifier="GSK_SERIALIZATION_UNSUPPORTED_VERSION" glib:nick="unsupported-version">
-        <doc xml:space="preserve">The version of the data
-    is not understood</doc>
+        <doc xml:space="preserve">The version of the data is not
+  understood</doc>
       </member>
       <member name="invalid_data" value="2" c:identifier="GSK_SERIALIZATION_INVALID_DATA" glib:nick="invalid-data">
         <doc xml:space="preserve">The given data may not exist in
-    a proper serialization</doc>
+  a proper serialization</doc>
       </member>
       <function name="quark" c:identifier="gsk_serialization_error_quark">
         <return-value transfer-ownership="none">
@@ -3141,7 +3137,7 @@ rendering pipeline.</doc>
       </function>
     </enumeration>
     <record name="ShaderArgsBuilder" c:type="GskShaderArgsBuilder" glib:type-name="GskShaderArgsBuilder" glib:get-type="gsk_shader_args_builder_get_type" c:symbol-prefix="shader_args_builder">
-      <doc xml:space="preserve">An object to build the uniforms data for a #GskGLShader.</doc>
+      <doc xml:space="preserve">An object to build the uniforms data for a `GskGLShader`.</doc>
       <constructor name="new" c:identifier="gsk_shader_args_builder_new">
         <doc xml:space="preserve">Allocates a builder that can be used to construct a new uniform data
 chunk.</doc>
@@ -3162,7 +3158,7 @@ chunk.</doc>
         </parameters>
       </constructor>
       <method name="free_to_args" c:identifier="gsk_shader_args_builder_free_to_args" introspectable="0">
-        <doc xml:space="preserve">Creates a new #GBytes args from the current state of the
+        <doc xml:space="preserve">Creates a new `GBytes` args from the current state of the
 given @builder, and frees the @builder instance.
 
 Any uniforms of the shader that have not been explicitly set
@@ -3487,11 +3483,11 @@ color glyphs.</doc>
         </return-value>
         <parameters>
           <parameter name="font" transfer-ownership="none">
-            <doc xml:space="preserve">the #PangoFont containing the glyphs</doc>
+            <doc xml:space="preserve">the `PangoFont` containing the glyphs</doc>
             <type name="Pango.Font" c:type="PangoFont*"/>
           </parameter>
           <parameter name="glyphs" transfer-ownership="none">
-            <doc xml:space="preserve">the #PangoGlyphString to render</doc>
+            <doc xml:space="preserve">the `PangoGlyphString` to render</doc>
             <type name="Pango.GlyphString" c:type="PangoGlyphString*"/>
           </parameter>
           <parameter name="color" transfer-ownership="none">
@@ -3590,7 +3586,7 @@ color glyphs.</doc>
       </method>
     </class>
     <class name="TextureNode" c:symbol-prefix="texture_node" c:type="GskTextureNode" parent="RenderNode" glib:type-name="GskTextureNode" glib:get-type="gsk_texture_node_get_type" glib:fundamental="1">
-      <doc xml:space="preserve">A render node for a #GdkTexture.</doc>
+      <doc xml:space="preserve">A render node for a `GdkTexture`.</doc>
       <constructor name="new" c:identifier="gsk_texture_node_new">
         <doc xml:space="preserve">Creates a `GskRenderNode` that will render the given
 @texture into the area given by @bounds.</doc>
@@ -3641,7 +3637,7 @@ having to worry about others changing them.</doc>
       <method name="equal" c:identifier="gsk_transform_equal">
         <doc xml:space="preserve">Checks two transforms for equality.</doc>
         <return-value transfer-ownership="none">
-          <doc xml:space="preserve">%TRUE if the two transforms perform the same operation.</doc>
+          <doc xml:space="preserve">%TRUE if the two transforms perform the same operation</doc>
           <type name="gboolean" c:type="gboolean"/>
         </return-value>
         <parameters>
@@ -3663,7 +3659,7 @@ having to worry about others changing them.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">A #GskTransform</doc>
+            <doc xml:space="preserve">A `GskTransform`</doc>
             <type name="Transform" c:type="GskTransform*"/>
           </instance-parameter>
         </parameters>
@@ -3677,8 +3673,7 @@ the correct inverse of %NULL. If you need to differentiate
 between those cases, you should check @self is not %NULL
 before calling this function.</doc>
         <return-value transfer-ownership="full" nullable="1">
-          <doc xml:space="preserve">The inverted transform or %NULL if the transform
-    cannot be inverted.</doc>
+          <doc xml:space="preserve">The inverted transform</doc>
           <type name="Transform" c:type="GskTransform*"/>
         </return-value>
         <parameters>
@@ -3723,8 +3718,8 @@ on the z=0 plane are unchanged.</doc>
           </instance-parameter>
           <parameter name="depth" transfer-ownership="none">
             <doc xml:space="preserve">distance of the z=0 plane. Lower values give a more
-    flattened pyramid and therefore a more pronounced
-    perspective effect.</doc>
+  flattened pyramid and therefore a more pronounced
+  perspective effect.</doc>
             <type name="gfloat" c:type="float"/>
           </parameter>
         </parameters>
@@ -3873,7 +3868,7 @@ Cairo.</doc>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none">
-            <doc xml:space="preserve">a 2D #GskTransform</doc>
+            <doc xml:space="preserve">a 2D `GskTransform`</doc>
             <type name="Transform" c:type="GskTransform*"/>
           </instance-parameter>
           <parameter name="out_xx" direction="out" caller-allocates="0" transfer-ownership="full">
@@ -3906,8 +3901,11 @@ Cairo.</doc>
         <doc xml:space="preserve">Converts a `GskTransform` to 2D affine transformation factors.
 
 @self must be a 2D transformation. If you are not
-sure, use gsk_transform_get_category() &gt;=
-%GSK_TRANSFORM_CATEGORY_2D_AFFINE to check.</doc>
+sure, use
+
+    gsk_transform_get_category() &gt;= %GSK_TRANSFORM_CATEGORY_2D_AFFINE
+
+to check.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3918,22 +3916,22 @@ sure, use gsk_transform_get_category() &gt;=
           </instance-parameter>
           <parameter name="out_scale_x" direction="out" caller-allocates="0" transfer-ownership="full">
             <doc xml:space="preserve">return location for the scale
-    factor in the x direction</doc>
+  factor in the x direction</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
           <parameter name="out_scale_y" direction="out" caller-allocates="0" transfer-ownership="full">
             <doc xml:space="preserve">return location for the scale
-    factor in the y direction</doc>
+  factor in the y direction</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
           <parameter name="out_dx" direction="out" caller-allocates="0" transfer-ownership="full">
             <doc xml:space="preserve">return location for the translation
-    in the x direction</doc>
+  in the x direction</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
           <parameter name="out_dy" direction="out" caller-allocates="0" transfer-ownership="full">
             <doc xml:space="preserve">return location for the translation
-    in the y direction</doc>
+  in the y direction</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
         </parameters>
@@ -3968,7 +3966,7 @@ This is a wrapper around [method@Gsk.Transform.print].</doc>
         </return-value>
         <parameters>
           <instance-parameter name="self" transfer-ownership="none" nullable="1" allow-none="1">
-            <doc xml:space="preserve">a #GskTransform</doc>
+            <doc xml:space="preserve">a `GskTransform`</doc>
             <type name="Transform" c:type="GskTransform*"/>
           </instance-parameter>
         </parameters>
@@ -3977,8 +3975,11 @@ This is a wrapper around [method@Gsk.Transform.print].</doc>
         <doc xml:space="preserve">Converts a `GskTransform` to a translation operation.
 
 @self must be a 2D transformation. If you are not
-sure, use gsk_transform_get_category() &gt;=
-%GSK_TRANSFORM_CATEGORY_2D_TRANSLATE to check.</doc>
+sure, use
+
+    gsk_transform_get_category() &gt;= %GSK_TRANSFORM_CATEGORY_2D_TRANSLATE
+
+to check.</doc>
         <return-value transfer-ownership="none">
           <type name="none" c:type="void"/>
         </return-value>
@@ -3989,12 +3990,12 @@ sure, use gsk_transform_get_category() &gt;=
           </instance-parameter>
           <parameter name="out_dx" direction="out" caller-allocates="0" transfer-ownership="full">
             <doc xml:space="preserve">return location for the translation
-    in the x direction</doc>
+  in the x direction</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
           <parameter name="out_dy" direction="out" caller-allocates="0" transfer-ownership="full">
             <doc xml:space="preserve">return location for the translation
-    in the y direction</doc>
+  in the y direction</doc>
             <type name="gfloat" c:type="float*"/>
           </parameter>
         </parameters>
@@ -4143,29 +4144,29 @@ So if you want to for example check if a matrix is a 2D matrix,
 
 Also keep in mind that rounding errors may cause matrices to not
 conform to their categories. Otherwise, matrix operations done via
-mutliplication will not worsen categories. So for the matrix
+multiplication will not worsen categories. So for the matrix
 multiplication `C = A * B`, `category(C) = MIN (category(A), category(B))`.</doc>
       <member name="unknown" value="0" c:identifier="GSK_TRANSFORM_CATEGORY_UNKNOWN" glib:nick="unknown">
         <doc xml:space="preserve">The category of the matrix has not been
-    determined.</doc>
+  determined.</doc>
       </member>
       <member name="any" value="1" c:identifier="GSK_TRANSFORM_CATEGORY_ANY" glib:nick="any">
         <doc xml:space="preserve">Analyzing the matrix concluded that it does
-    not fit in any other category.</doc>
+  not fit in any other category.</doc>
       </member>
       <member name="3d" value="2" c:identifier="GSK_TRANSFORM_CATEGORY_3D" glib:nick="3d">
         <doc xml:space="preserve">The matrix is a 3D matrix. This means that
-    the w column (the last column) has the values (0, 0, 0, 1).</doc>
+  the w column (the last column) has the values (0, 0, 0, 1).</doc>
       </member>
       <member name="2d" value="3" c:identifier="GSK_TRANSFORM_CATEGORY_2D" glib:nick="2d">
         <doc xml:space="preserve">The matrix is a 2D matrix. This is equivalent
-    to graphene_matrix_is_2d() returning %TRUE. In particular, this
-    means that Cairo can deal with the matrix.</doc>
+  to graphene_matrix_is_2d() returning %TRUE. In particular, this
+  means that Cairo can deal with the matrix.</doc>
       </member>
       <member name="2d_affine" value="4" c:identifier="GSK_TRANSFORM_CATEGORY_2D_AFFINE" glib:nick="2d-affine">
         <doc xml:space="preserve">The matrix is a combination of 2D scale
-    and 2D translation operations. In particular, this means that any
-    rectangle can be transformed exactly using this matrix.</doc>
+  and 2D translation operations. In particular, this means that any
+  rectangle can be transformed exactly using this matrix.</doc>
       </member>
       <member name="2d_translate" value="5" c:identifier="GSK_TRANSFORM_CATEGORY_2D_TRANSLATE" glib:nick="2d-translate">
         <doc xml:space="preserve">The matrix is a 2D translation.</doc>
