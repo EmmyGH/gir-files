@@ -1,7 +1,7 @@
 name: Redownload & regenerate (monthly)
 on:
-  schedule:
-    - cron: '0 0 1 * *'
+  push:
+    branches: [master]
 jobs:
   regenerate:
     name: Regenerate GIR files
